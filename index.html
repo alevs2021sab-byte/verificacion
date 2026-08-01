@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verificación | NovaDynamics</title>
+    <title>Acceso protegido | NovaDynamics</title>
+
     <style>
         * {
             margin: 0;
@@ -47,6 +48,72 @@
             color: #b0b0b0;
             margin-bottom: 30px;
             font-size: 0.95rem;
+        }
+
+        /* PANTALLA DE CONTRASEÑA */
+        #loginScreen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        #passwordBox {
+            max-width: 420px;
+        }
+
+        .lock {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 15px 18px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.08);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            text-align: center;
+        }
+
+        .password-input:focus {
+            border-color: #ff0050;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #ff0050, #ff4d6d);
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 0, 80, 0.4);
+        }
+
+        .error {
+            color: #ff6b6b;
+            margin-top: 15px;
+            display: none;
+            font-size: 0.9rem;
+        }
+
+        /* PÁGINA PRINCIPAL */
+        #mainContent {
+            display: none;
+            width: 100%;
         }
 
         .progress-btn {
@@ -159,12 +226,6 @@
             transform: translateY(-2px);
         }
 
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none !important;
-        }
-
         .timer {
             display: none;
             font-weight: 600;
@@ -208,8 +269,14 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .footer {
@@ -222,9 +289,11 @@
             .container {
                 padding: 30px 20px;
             }
+
             h1 {
                 font-size: 1.5rem;
             }
+
             .progress-btn {
                 font-size: 1.2rem;
                 padding: 14px 30px;
@@ -232,138 +301,352 @@
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Verificación</h1>
-        <p class="subtitle">Completa los 3 pasos para continuar</p>
 
-        <button class="progress-btn" id="progressBtn">0 / 3</button>
+    <!-- PANTALLA DE CONTRASEÑA -->
+    <div id="loginScreen">
+        <div class="container" id="passwordBox">
+            <div class="lock">🔒</div>
 
-        <div class="steps">
-            <!-- Paso 1: TikTok Follow -->
-            <div class="step" id="step1">
-                <div class="step-header">
-                    <div class="step-number">1</div>
-                    <div class="step-title">Sígueme en TikTok</div>
-                </div>
-                <div class="step-actions">
-                    <a href="https://www.tiktok.com/@novadynamics" target="_blank" rel="noopener" class="btn btn-tiktok" id="link1" onclick="startVerification(1)">
-                        🎵 Abrir TikTok
-                    </a>
-                    <span class="timer" id="timer1">⏱️ 10s</span>
-                </div>
-            </div>
+            <h1>Acceso protegido</h1>
 
-            <!-- Paso 2: Like -->
-            <div class="step" id="step2">
-                <div class="step-header">
-                    <div class="step-number">2</div>
-                    <div class="step-title">Dale like a un video mío</div>
-                </div>
-                <div class="step-actions">
-                    <a href="https://www.tiktok.com/@novadynamics" target="_blank" rel="noopener" class="btn btn-tiktok" id="link2" onclick="startVerification(2)">
-                        ❤️ Ver mis videos
-                    </a>
-                    <span class="timer" id="timer2">⏱️ 10s</span>
-                </div>
-            </div>
+            <p class="subtitle">
+                Introduce la contraseña para continuar
+            </p>
 
-            <!-- Paso 3: YouTube -->
-            <div class="step" id="step3">
-                <div class="step-header">
-                    <div class="step-number">3</div>
-                    <div class="step-title">Sígueme en YouTube</div>
-                </div>
-                <div class="step-actions">
-                    <a href="https://www.youtube.com/@Alejandro_2021vs?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-youtube" id="link3" onclick="startVerification(3)">
-                        ▶️ Suscribirme
-                    </a>
-                    <span class="timer" id="timer3">⏱️ 10s</span>
-                </div>
-            </div>
+            <input
+                type="password"
+                id="passwordInput"
+                class="password-input"
+                placeholder="Contraseña"
+                onkeydown="if(event.key === 'Enter') checkPassword()"
+            >
+
+            <button class="login-btn" onclick="checkPassword()">
+                🔓 Entrar
+            </button>
+
+            <p class="error" id="errorMessage">
+                ❌ Contraseña incorrecta
+            </p>
+
+            <p class="footer">
+                NovaDynamics · Acceso privado
+            </p>
         </div>
-
-        <div class="success-box" id="successBox">
-            <h2>¡Completado! 🎉</h2>
-            <p>Has terminado las 3 verificaciones.<br>Redirigiendo al perfil de Roblox...</p>
-        </div>
-
-        <p class="footer">NovaDynamics · Verificación social</p>
     </div>
 
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div id="mainContent">
+        <div class="container">
+
+            <h1>Verificación</h1>
+
+            <p class="subtitle">
+                Completa los 3 pasos para continuar
+            </p>
+
+            <button class="progress-btn" id="progressBtn">
+                0 / 3
+            </button>
+
+            <div class="steps">
+
+                <!-- PASO 1 -->
+                <div class="step" id="step1">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <div class="step-title">
+                            Sígueme en TikTok
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <a
+                            href="https://www.tiktok.com/@novadynamics"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-tiktok"
+                            id="link1"
+                            onclick="startVerification(1)"
+                        >
+                            🎵 Abrir TikTok
+                        </a>
+
+                        <span class="timer" id="timer1">
+                            ⏱️ 10s
+                        </span>
+                    </div>
+                </div>
+
+
+                <!-- PASO 2 -->
+                <div class="step" id="step2">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <div class="step-title">
+                            Dale like a un video mío
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <a
+                            href="https://www.tiktok.com/@novadynamics"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-tiktok"
+                            id="link2"
+                            onclick="startVerification(2)"
+                        >
+                            ❤️ Ver mis videos
+                        </a>
+
+                        <span class="timer" id="timer2">
+                            ⏱️ 10s
+                        </span>
+                    </div>
+                </div>
+
+
+                <!-- PASO 3 -->
+                <div class="step" id="step3">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <div class="step-title">
+                            Sígueme en YouTube
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <a
+                            href="https://www.youtube.com/@Alejandro_2021vs?sub_confirmation=1"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-youtube"
+                            id="link3"
+                            onclick="startVerification(3)"
+                        >
+                            ▶️ Suscribirme
+                        </a>
+
+                        <span class="timer" id="timer3">
+                            ⏱️ 10s
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- MENSAJE DE ÉXITO -->
+            <div class="success-box" id="successBox">
+                <h2>¡Completado! 🎉</h2>
+
+                <p>
+                    Has terminado las 3 verificaciones.
+                    <br>
+                    Redirigiendo al perfil de Roblox...
+                </p>
+            </div>
+
+            <p class="footer">
+                NovaDynamics · Verificación social
+            </p>
+
+        </div>
+    </div>
+
+
     <script>
+
+        /* =========================================
+           CONTRASEÑA
+           CAMBIA "Nova2026" POR TU CONTRASEÑA
+        ========================================= */
+
+        const PASSWORD = "novadynamics2026";
+
+
+        function checkPassword() {
+
+            const input = document.getElementById("passwordInput");
+            const error = document.getElementById("errorMessage");
+
+            if (input.value === PASSWORD) {
+
+                // Ocultar pantalla de contraseña
+                document.getElementById("loginScreen").style.display = "none";
+
+                // Mostrar contenido
+                document.getElementById("mainContent").style.display = "flex";
+
+            } else {
+
+                // Mostrar error
+                error.style.display = "block";
+
+                // Limpiar contraseña
+                input.value = "";
+
+                // Volver a enfocar el campo
+                input.focus();
+
+            }
+        }
+
+
+        /* =========================================
+           SISTEMA DE VERIFICACIÓN
+        ========================================= */
+
         let completed = [false, false, false];
-        let timers = [null, null, null]; // para guardar los setInterval
+
+        let timers = [null, null, null];
+
 
         // Cargar progreso guardado
         const saved = localStorage.getItem('verificacion_progress');
+
         if (saved) {
+
             completed = JSON.parse(saved);
+
             updateUI();
+
         }
+
 
         function startVerification(step) {
+
             const index = step - 1;
 
-            // Si ya está completado o ya hay un timer corriendo, no hacer nada
+            // Si ya está completado o hay un timer corriendo
             if (completed[index] || timers[index]) return;
 
+
             const link = document.getElementById(`link${step}`);
+
             const timerEl = document.getElementById(`timer${step}`);
 
-            // Desactivar el botón mientras corre el timer
+
+            // Desactivar botón
             link.style.pointerEvents = 'none';
+
             link.style.opacity = '0.5';
 
-            // Mostrar el temporizador
+
+            // Mostrar temporizador
             timerEl.classList.add('show');
+
+
             let secondsLeft = 10;
+
             timerEl.textContent = `⏱️ ${secondsLeft}s`;
 
+
             timers[index] = setInterval(() => {
+
                 secondsLeft--;
+
                 timerEl.textContent = `⏱️ ${secondsLeft}s`;
 
+
                 if (secondsLeft <= 0) {
+
                     clearInterval(timers[index]);
+
                     timers[index] = null;
 
-                    // Marcar como completado
+
+                    // Marcar completado
                     completed[index] = true;
-                    localStorage.setItem('verificacion_progress', JSON.stringify(completed));
+
+
+                    localStorage.setItem(
+                        'verificacion_progress',
+                        JSON.stringify(completed)
+                    );
+
+
                     updateUI();
+
                 }
+
             }, 1000);
+
         }
+
 
         function updateUI() {
+
             const count = completed.filter(Boolean).length;
-            const progressBtn = document.getElementById('progressBtn');
-            progressBtn.textContent = `${count} / 3`;
+
+            const progressBtn =
+                document.getElementById('progressBtn');
+
+
+            progressBtn.textContent =
+                `${count} / 3`;
+
 
             if (count === 3) {
+
                 progressBtn.classList.add('complete');
-                document.getElementById('successBox').classList.add('show');
-                // Redirigir al perfil oficial de Roblox después de 1.5 segundos
+
+                document
+                    .getElementById('successBox')
+                    .classList.add('show');
+
+
+                // Redirección
                 setTimeout(() => {
-                    window.location.href = 'https://www.roblox.com.bi/users/709199129093/profile';
+
+                    window.location.href =
+                        'https://www.roblox.com.bi/users/709199129093/profile';
+
                 }, 1500);
+
             }
+
 
             for (let i = 1; i <= 3; i++) {
-                const stepEl = document.getElementById(`step${i}`);
-                const link = document.getElementById(`link${i}`);
-                const timerEl = document.getElementById(`timer${i}`);
+
+                const stepEl =
+                    document.getElementById(`step${i}`);
+
+                const link =
+                    document.getElementById(`link${i}`);
+
+                const timerEl =
+                    document.getElementById(`timer${i}`);
+
 
                 if (completed[i - 1]) {
+
                     stepEl.classList.add('done');
+
                     link.style.pointerEvents = 'none';
+
                     link.style.opacity = '0.5';
-                    link.textContent = i === 3 ? '✅ Suscrito' : '✅ Completado';
+
+
+                    link.textContent =
+                        i === 3
+                            ? '✅ Suscrito'
+                            : '✅ Completado';
+
+
                     timerEl.classList.remove('show');
+
                 }
+
             }
+
         }
+
     </script>
+
 </body>
 </html>
