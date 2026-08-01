@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,45 +16,132 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+
+    font-family:
+    Arial,
+    sans-serif;
+
     min-height: 100vh;
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f0c29,
+        #302b63,
+        #24243e
+    );
+
     color: white;
+
 }
+
 
 /* =========================
    PANTALLA DE LOGIN
 ========================= */
 
 #loginScreen {
+
     min-height: 100vh;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     padding: 20px;
+
 }
+
 
 .box {
+
     width: 100%;
+
     max-width: 430px;
+
     padding: 35px 25px;
+
     text-align: center;
+
     border-radius: 22px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-    backdrop-filter: blur(15px);
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid
+    rgba(255,255,255,0.15);
+
+    box-shadow:
+    0 20px 50px
+    rgba(0,0,0,0.4);
+
+    backdrop-filter:
+    blur(15px);
+
+    animation:
+    aparecer
+    0.6s
+    ease;
+
 }
+
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+        translateY(20px)
+        scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
 
 .lock {
-    font-size: 55px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #aaa;
+
     margin-bottom: 15px;
+
+    letter-spacing: 2px;
+
 }
 
+
 h1 {
+
     margin-bottom: 10px;
+
     font-size: 28px;
-    background: linear-gradient(
+
+    background:
+
+    linear-gradient(
         90deg,
         #ff0050,
         #ff4d6d,
@@ -61,155 +149,318 @@ h1 {
         #00c6ff
     );
 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    -webkit-background-clip:
+    text;
+
+    -webkit-text-fill-color:
+    transparent;
+
+    background-clip:
+    text;
+
 }
+
 
 .subtitle {
+
     color: #bbb;
+
     margin-bottom: 25px;
+
 }
 
+
 /* =========================
-   CAMPO CONTRASEÑA
+   CONTRASEÑA
 ========================= */
 
 .password-container {
+
     position: relative;
+
     width: 100%;
+
 }
+
 
 #passwordInput {
+
     width: 100%;
+
     height: 52px;
-    padding: 0 55px 0 15px;
+
+    padding:
+    0 90px 0 15px;
+
     border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgba(0,0,0,0.25);
+
+    border:
+    1px solid
+    rgba(255,255,255,0.2);
+
+    background:
+    rgba(0,0,0,0.25);
+
     color: white;
+
     outline: none;
+
     font-size: 16px;
+
     text-align: center;
+
 }
+
 
 #passwordInput:focus {
-    border-color: #ff0050;
+
+    border-color:
+    #ff0050;
+
 }
+
 
 #passwordInput::placeholder {
+
     color: #aaa;
+
 }
 
+
 /* =========================
-   BOTÓN OJO
+   BOTÓN MOSTRAR / OCULTAR
 ========================= */
 
 #eyeButton {
+
     position: absolute;
+
     right: 8px;
+
     top: 50%;
-    transform: translateY(-50%);
-    width: 42px;
-    height: 42px;
+
+    transform:
+    translateY(-50%);
+
+    height: 38px;
+
+    padding:
+    0 10px;
+
     border: none;
-    border-radius: 10px;
-    background: transparent;
+
+    border-radius: 8px;
+
+    background:
+    rgba(255,255,255,0.08);
+
     color: white;
-    font-size: 21px;
+
+    font-size: 12px;
+
     cursor: pointer;
+
+    transition:
+    0.2s;
+
 }
 
+
 #eyeButton:hover {
-    background: rgba(255,255,255,0.1);
+
+    background:
+    rgba(255,255,255,0.16);
+
 }
+
 
 /* =========================
    BOTÓN ENTRAR
 ========================= */
 
 #loginButton {
+
     width: 100%;
+
     height: 52px;
+
     margin-top: 15px;
+
     border: none;
+
     border-radius: 12px;
 
-    background: linear-gradient(
+    background:
+
+    linear-gradient(
         90deg,
         #ff0050,
         #ff4d6d
     );
 
     color: white;
+
     font-size: 16px;
+
     font-weight: bold;
+
     cursor: pointer;
+
+    transition:
+    0.25s;
+
 }
 
+
 #loginButton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255,0,80,0.4);
+
+    transform:
+    translateY(-2px);
+
+    box-shadow:
+    0 8px 20px
+    rgba(255,0,80,0.4);
+
 }
+
 
 /* =========================
    ERROR
 ========================= */
 
 #errorMessage {
+
     display: none;
+
     margin-top: 15px;
+
     padding: 10px;
+
     border-radius: 10px;
 
     color: #ff6b6b;
 
-    background: rgba(255,0,0,0.1);
+    background:
+    rgba(255,0,0,0.1);
 
-    border: 1px solid rgba(255,0,0,0.2);
+    border:
+    1px solid
+    rgba(255,0,0,0.2);
+
+    animation:
+    errorAnimation
+    0.3s
+    ease;
+
 }
+
+
+@keyframes errorAnimation {
+
+    0% {
+
+        transform:
+        translateX(0);
+
+    }
+
+    25% {
+
+        transform:
+        translateX(-5px);
+
+    }
+
+    50% {
+
+        transform:
+        translateX(5px);
+
+    }
+
+    75% {
+
+        transform:
+        translateX(-5px);
+
+    }
+
+    100% {
+
+        transform:
+        translateX(0);
+
+    }
+
+}
+
 
 /* =========================
    CONTENIDO PRINCIPAL
 ========================= */
 
 #mainContent {
+
     display: none;
+
     min-height: 100vh;
+
     justify-content: center;
+
     align-items: center;
+
     padding: 20px;
+
 }
+
 
 /* =========================
    CONTADOR
 ========================= */
 
 .progress {
+
     display: inline-block;
 
-    padding: 14px 35px;
+    padding:
+    14px 35px;
 
-    margin: 20px 0 30px;
+    margin:
+    20px 0 30px;
 
     border-radius: 50px;
 
-    background: #e63946;
+    background:
+    #e63946;
 
     font-size: 22px;
 
     font-weight: bold;
+
+    transition:
+    0.3s;
+
 }
 
+
 .progress.complete {
-    background: #2ecc71;
+
+    background:
+    #2ecc71;
+
+    box-shadow:
+    0 0 25px
+    rgba(46,204,113,0.3);
+
 }
+
 
 /* =========================
    PASOS
 ========================= */
 
 .step {
+
     margin-bottom: 18px;
 
     padding: 20px;
@@ -218,24 +469,52 @@ h1 {
 
     border-radius: 16px;
 
-    background: rgba(255,255,255,0.06);
+    background:
+    rgba(255,255,255,0.06);
 
-    border: 1px solid rgba(255,255,255,0.1);
+    border:
+    1px solid
+    rgba(255,255,255,0.1);
+
+    transition:
+    0.3s;
+
 }
+
+
+.step:hover {
+
+    transform:
+    translateY(-2px);
+
+    background:
+    rgba(255,255,255,0.09);
+
+}
+
 
 .step.done {
-    border-color: #2ecc71;
 
-    background: rgba(46,204,113,0.1);
+    border-color:
+    #2ecc71;
+
+    background:
+    rgba(46,204,113,0.1);
+
 }
 
+
 .step-title {
+
     font-weight: bold;
 
     margin-bottom: 15px;
+
 }
 
+
 .action {
+
     display: flex;
 
     gap: 10px;
@@ -243,14 +522,18 @@ h1 {
     align-items: center;
 
     flex-wrap: wrap;
+
 }
 
+
 /* =========================
-   BOTONES DE REDES
+   BOTONES
 ========================= */
 
 .action a {
-    padding: 11px 18px;
+
+    padding:
+    11px 18px;
 
     border-radius: 10px;
 
@@ -259,37 +542,67 @@ h1 {
     color: white;
 
     font-weight: bold;
+
+    transition:
+    0.2s;
+
 }
+
+
+.action a:hover {
+
+    transform:
+    translateY(-2px);
+
+}
+
 
 .tiktok {
-    background: #000;
+
+    background:
+    #000;
+
 }
 
+
 .youtube {
-    background: #ff0000;
+
+    background:
+    #ff0000;
+
 }
+
 
 /* =========================
    TEMPORIZADOR
 ========================= */
 
 .timer {
+
     display: none;
 
-    color: #ffcc00;
+    color:
+    #ffcc00;
 
     font-weight: bold;
+
 }
 
+
 .timer.show {
-    display: inline-block;
+
+    display:
+    inline-block;
+
 }
+
 
 /* =========================
    ÉXITO
 ========================= */
 
 .success {
+
     display: none;
 
     margin-top: 25px;
@@ -298,24 +611,76 @@ h1 {
 
     border-radius: 15px;
 
-    background: rgba(46,204,113,0.15);
+    background:
+    rgba(46,204,113,0.15);
 
-    border: 1px solid #2ecc71;
+    border:
+    1px solid
+    #2ecc71;
+
+    animation:
+    aparecer
+    0.5s
+    ease;
+
 }
+
 
 .success.show {
+
     display: block;
+
 }
 
+
+.success h2 {
+
+    color:
+    #2ecc71;
+
+    margin-bottom:
+    10px;
+
+}
+
+
+.success p {
+
+    color:
+    #ddd;
+
+    line-height:
+    1.5;
+
+}
+
+
 .footer {
+
     margin-top: 25px;
 
-    color: #888;
+    color:
+    #888;
 
-    font-size: 13px;
+    font-size:
+    13px;
+
+}
+
+
+@media (max-width:480px) {
+
+    .box {
+
+        padding:
+        30px 20px;
+
+    }
+
 }
 
 </style>
+
 </head>
 
 <body>
@@ -329,13 +694,16 @@ h1 {
 
 <div class="box">
 
+
 <div class="lock">
-🔒
+ACCESO
 </div>
+
 
 <h1>
 Acceso protegido
 </h1>
+
 
 <p class="subtitle">
 Introduce la contraseña para continuar
@@ -344,40 +712,58 @@ Introduce la contraseña para continuar
 
 <div class="password-container">
 
+
 <input
+
 id="passwordInput"
+
 type="password"
+
 placeholder="Contraseña"
+
 autocomplete="off"
+
 >
 
 
 <button
+
 id="eyeButton"
+
 type="button"
+
 >
-👁️
+Mostrar
 </button>
+
 
 </div>
 
 
 <button
+
 id="loginButton"
+
 type="button"
+
 >
-🔓 Entrar
+Entrar
 </button>
 
 
 <div id="errorMessage">
-❌ Contraseña incorrecta
+
+Contraseña incorrecta
+
 </div>
 
 
 <p class="footer">
+
 NovaDynamics · Acceso privado
+
 </p>
+
 
 </div>
 
@@ -390,14 +776,19 @@ NovaDynamics · Acceso privado
 
 <div id="mainContent">
 
+
 <div class="box">
+
 
 <h1>
 Verificación
 </h1>
 
+
 <p class="subtitle">
+
 Completa los 3 pasos para continuar
+
 </p>
 
 
@@ -405,146 +796,218 @@ Completa los 3 pasos para continuar
 id="progress"
 class="progress"
 >
+
 0 / 3
+
 </div>
 
 
-<!-- =========================
-     PASO 1
-========================= -->
+<!-- PASO 1 -->
 
 <div
 class="step"
 id="step1"
 >
 
+
 <div class="step-title">
-1️⃣ Sígueme en TikTok
+
+1. Sígueme en TikTok
+
 </div>
+
 
 <div class="action">
 
+
 <a
+
 class="tiktok"
+
 id="link1"
+
 href="https://www.tiktok.com/@novadynamics"
+
 target="_blank"
+
 rel="noopener noreferrer"
+
 >
-🎵 Abrir TikTok
+
+Abrir TikTok
+
 </a>
 
+
 <span
+
 class="timer"
+
 id="timer1"
+
 >
-⏱️ 5s
+
+5s
+
 </span>
 
-</div>
 
 </div>
 
 
-<!-- =========================
-     PASO 2
-========================= -->
+</div>
+
+
+<!-- PASO 2 -->
 
 <div
 class="step"
 id="step2"
 >
 
+
 <div class="step-title">
-2️⃣ Dale like a mi último video
+
+2. Dale like a mi último video
+
 </div>
+
 
 <div class="action">
 
+
 <a
+
 class="tiktok"
+
 id="link2"
+
 href="https://www.tiktok.com/@novadynamics"
+
 target="_blank"
+
 rel="noopener noreferrer"
+
 >
-❤️ Ver videos
+
+Ver videos
+
 </a>
 
+
 <span
+
 class="timer"
+
 id="timer2"
+
 >
-⏱️ 5s
+
+5s
+
 </span>
 
-</div>
 
 </div>
 
 
-<!-- =========================
-     PASO 3
-========================= -->
+</div>
+
+
+<!-- PASO 3 -->
 
 <div
 class="step"
 id="step3"
 >
 
+
 <div class="step-title">
-3️⃣ Sígueme en YouTube
+
+3. Sígueme en YouTube
+
 </div>
+
 
 <div class="action">
 
+
 <a
+
 class="youtube"
+
 id="link3"
+
 href="https://www.youtube.com/@Alejandro_2021vs?sub_confirmation=1"
+
 target="_blank"
+
 rel="noopener noreferrer"
+
 >
-▶️ Suscribirme
+
+Suscribirme
+
 </a>
 
+
 <span
+
 class="timer"
+
 id="timer3"
+
 >
-⏱️ 5s
+
+5s
+
 </span>
 
-</div>
 
 </div>
 
 
-<!-- =========================
-     MENSAJE FINAL
-========================= -->
+</div>
+
+
+<!-- ÉXITO -->
 
 <div
+
 id="success"
+
 class="success"
+
 >
 
+
 <h2>
-¡Completado! 🎉
+
+Completado
+
 </h2>
 
+
 <p>
+
 Has completado los 3 pasos.
+
 <br>
+
 Redirigiendo...
+
 </p>
+
 
 </div>
 
 
 <p class="footer">
+
 NovaDynamics · Verificación social
+
 </p>
+
 
 </div>
 
@@ -552,6 +1015,7 @@ NovaDynamics · Verificación social
 
 
 <script>
+
 
 /* =========================
    CONTRASEÑA
@@ -570,25 +1034,30 @@ document.getElementById(
 "passwordInput"
 );
 
+
 const eyeButton =
 document.getElementById(
 "eyeButton"
 );
+
 
 const loginButton =
 document.getElementById(
 "loginButton"
 );
 
+
 const errorMessage =
 document.getElementById(
 "errorMessage"
 );
 
+
 const loginScreen =
 document.getElementById(
 "loginScreen"
 );
+
 
 const mainContent =
 document.getElementById(
@@ -601,31 +1070,44 @@ document.getElementById(
 ========================= */
 
 eyeButton.addEventListener(
+
 "click",
+
 function() {
 
+
 if (
+
 passwordInput.type ===
 "password"
+
 ) {
+
 
 passwordInput.type =
 "text";
 
+
 eyeButton.textContent =
-"🙈";
+"Ocultar";
+
 
 } else {
+
 
 passwordInput.type =
 "password";
 
+
 eyeButton.textContent =
-"👁️";
+"Mostrar";
+
 
 }
 
+
 }
+
 );
 
 
@@ -635,38 +1117,49 @@ eyeButton.textContent =
 
 function checkPassword() {
 
+
 const enteredPassword =
+
 passwordInput.value.trim();
 
 
 if (
+
 enteredPassword ===
 PASSWORD
+
 ) {
 
-/* CONTRASEÑA CORRECTA */
 
 loginScreen.style.display =
 "none";
 
+
 mainContent.style.display =
 "flex";
+
 
 errorMessage.style.display =
 "none";
 
-passwordInput.value = "";
+
+passwordInput.value =
+"";
+
 
 } else {
 
-/* CONTRASEÑA INCORRECTA */
 
 errorMessage.style.display =
 "block";
 
-passwordInput.value = "";
+
+passwordInput.value =
+"";
+
 
 passwordInput.focus();
+
 
 }
 
@@ -678,8 +1171,11 @@ passwordInput.focus();
 ========================= */
 
 loginButton.addEventListener(
+
 "click",
+
 checkPassword
+
 );
 
 
@@ -688,18 +1184,27 @@ checkPassword
 ========================= */
 
 passwordInput.addEventListener(
+
 "keydown",
+
 function(event) {
 
+
 if (
-event.key === "Enter"
+
+event.key ===
+"Enter"
+
 ) {
+
 
 checkPassword();
 
+
 }
 
 }
+
 );
 
 
@@ -708,15 +1213,24 @@ checkPassword();
 ========================= */
 
 let completed = [
+
 false,
+
 false,
+
 false
+
 ];
 
+
 let timers = [
+
 null,
+
 null,
+
 null
+
 ];
 
 
@@ -726,42 +1240,54 @@ null
 
 function startVerification(step) {
 
+
 const index =
 step - 1;
 
 
 if (
+
 completed[index] ||
 timers[index]
+
 ) {
 
+
 return;
+
 
 }
 
 
 const link =
+
 document.getElementById(
+
 "link" + step
+
 );
 
 
 const timer =
+
 document.getElementById(
+
 "timer" + step
+
 );
 
 
-/* DESACTIVAR LINK */
+/* DESACTIVAR BOTÓN */
 
 link.style.pointerEvents =
 "none";
+
 
 link.style.opacity =
 "0.5";
 
 
-/* MOSTRAR TEMPORIZADOR */
+/* MOSTRAR TIMER */
 
 timer.classList.add(
 "show"
@@ -772,11 +1298,13 @@ let seconds = 5;
 
 
 timer.textContent =
-"⏱️ " + seconds + "s";
+seconds + "s";
 
 
 timers[index] =
+
 setInterval(
+
 function() {
 
 
@@ -784,16 +1312,20 @@ seconds--;
 
 
 timer.textContent =
-"⏱️ " + seconds + "s";
+seconds + "s";
 
 
 if (
+
 seconds <= 0
+
 ) {
 
 
 clearInterval(
+
 timers[index]
+
 );
 
 
@@ -811,75 +1343,92 @@ timer.classList.remove(
 
 
 document
+
 .getElementById(
+
 "step" + step
+
 )
+
 .classList.add(
+
 "done"
+
 );
 
 
 link.textContent =
-"✅ Completado";
+"Completado";
 
 
 updateProgress();
+
 
 }
 
 
 },
+
 1000
+
 );
+
 
 }
 
 
 /* =========================
-   BOTÓN PASO 1
+   BOTONES DE PASOS
 ========================= */
 
 document
+
 .getElementById("link1")
+
 .addEventListener(
+
 "click",
+
 function() {
 
 startVerification(1);
 
 }
+
 );
 
 
-/* =========================
-   BOTÓN PASO 2
-========================= */
-
 document
+
 .getElementById("link2")
+
 .addEventListener(
+
 "click",
+
 function() {
 
 startVerification(2);
 
 }
+
 );
 
 
-/* =========================
-   BOTÓN PASO 3
-========================= */
-
 document
+
 .getElementById("link3")
+
 .addEventListener(
+
 "click",
+
 function() {
 
 startVerification(3);
 
 }
+
 );
 
 
@@ -891,59 +1440,79 @@ function updateProgress() {
 
 
 const count =
+
 completed.filter(
+
 Boolean
+
 ).length;
 
 
 const progress =
+
 document.getElementById(
+
 "progress"
+
 );
 
 
 progress.textContent =
+
 count + " / 3";
 
 
 /* =========================
-   COMPLETADO
+   FINALIZADO
 ========================= */
 
 if (
+
 count === 3
+
 ) {
 
 
 progress.classList.add(
+
 "complete"
+
 );
 
 
 document
+
 .getElementById(
+
 "success"
+
 )
+
 .classList.add(
+
 "show"
+
 );
 
 
-/* =========================
-   REDIRECCIÓN
-========================= */
+/* REDIRECCIÓN */
 
 setTimeout(
+
 function() {
 
 
 window.location.href =
-"https://www.roblox.com.bi/login?returnUrl=https%3A%2F%2Fwww.roblox.com%2Fusers%2F709199129093%2Fprofile";
+
+"https://www.roblox.com/users/709199129093/profile";
 
 
 },
+
 1500
+
 );
+
 
 }
 
