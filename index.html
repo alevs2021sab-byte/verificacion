@@ -8,10 +8,6 @@
 
 <style>
 
-/* =========================
-   CONFIGURACIÓN
-========================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -25,7 +21,6 @@ body {
 }
 
 body {
-
     font-family:
         Inter,
         "Segoe UI",
@@ -37,7 +32,6 @@ body {
     color: #ffffff;
 
     background:
-
         radial-gradient(
             circle at 50% -20%,
             rgba(85, 90, 150, 0.22),
@@ -65,17 +59,10 @@ body {
 
     align-items: center;
 
-    overflow: hidden;
-
+    overflow: auto;
 }
 
-
-/* =========================
-   EFECTO DE FONDO
-========================= */
-
 body::before {
-
     content: "";
 
     position: fixed;
@@ -85,14 +72,12 @@ body::before {
     pointer-events: none;
 
     background:
-
         radial-gradient(
             circle at 50% 50%,
             transparent 0%,
             rgba(0,0,0,0.12) 60%,
             rgba(0,0,0,0.4) 100%
         );
-
 }
 
 
@@ -101,7 +86,6 @@ body::before {
 ========================= */
 
 .login-screen {
-
     width: 100%;
 
     min-height: 100vh;
@@ -113,16 +97,10 @@ body::before {
     align-items: center;
 
     padding: 25px;
-
 }
 
 
-/* =========================
-   CAJA DE LOGIN
-========================= */
-
 .login-box {
-
     width: 100%;
 
     max-width: 390px;
@@ -147,10 +125,8 @@ body::before {
         blur(20px);
 
     box-shadow:
-
         0 30px 80px
         rgba(0,0,0,0.45);
-
 }
 
 
@@ -159,7 +135,6 @@ body::before {
 ========================= */
 
 .title {
-
     font-size: 26px;
 
     font-weight: 700;
@@ -167,57 +142,47 @@ body::before {
     letter-spacing: -0.5px;
 
     margin-bottom: 9px;
-
 }
 
 
 .subtitle {
-
     color: #8b91a3;
 
     font-size: 14px;
 
     margin-bottom: 28px;
-
 }
 
 
 /* =========================
-   CAMPO
+   CAMPO DE CONTRASEÑA
 ========================= */
 
 .input-wrapper {
-
     position: relative;
 
     width: 100%;
 
     margin-bottom: 14px;
-
 }
 
 
 .password-input {
-
     width: 100%;
 
     height: 50px;
 
     padding:
-
         0 52px
-
         0 16px;
 
     border-radius: 10px;
 
     border:
-
         1px solid
         rgba(255,255,255,0.09);
 
     background:
-
         rgba(255,255,255,0.035);
 
     color: #ffffff;
@@ -232,20 +197,15 @@ body::before {
         border-color 0.2s,
         background 0.2s,
         box-shadow 0.2s;
-
 }
 
 
 .password-input::placeholder {
-
-    color:
-        #6f7585;
-
+    color: #6f7585;
 }
 
 
 .password-input:focus {
-
     border-color:
         rgba(130,140,255,0.55);
 
@@ -253,10 +213,8 @@ body::before {
         rgba(255,255,255,0.05);
 
     box-shadow:
-
         0 0 0 3px
         rgba(100,110,255,0.08);
-
 }
 
 
@@ -265,7 +223,6 @@ body::before {
 ========================= */
 
 .eye-button {
-
     position: absolute;
 
     right: 13px;
@@ -293,34 +250,30 @@ body::before {
 
     cursor: pointer;
 
-    font-size: 17px;
+    font-size: 16px;
 
     border-radius: 7px;
 
     transition:
         background 0.2s,
         color 0.2s;
-
 }
 
 
 .eye-button:hover {
-
     background:
         rgba(255,255,255,0.06);
 
     color:
         #ffffff;
-
 }
 
 
 /* =========================
-   BOTÓN ACCEDER
+   BOTÓN ENTRAR
 ========================= */
 
 .login-button {
-
     width: 100%;
 
     height: 50px;
@@ -330,7 +283,6 @@ body::before {
     border-radius: 10px;
 
     background:
-
         linear-gradient(
             135deg,
             #6366f1,
@@ -349,28 +301,22 @@ body::before {
         transform 0.2s,
         box-shadow 0.2s,
         opacity 0.2s;
-
 }
 
 
 .login-button:hover {
-
     transform:
         translateY(-1px);
 
     box-shadow:
-
         0 10px 25px
         rgba(99,102,241,0.25);
-
 }
 
 
 .login-button:active {
-
     transform:
         translateY(0);
-
 }
 
 
@@ -379,7 +325,6 @@ body::before {
 ========================= */
 
 .error-message {
-
     display: none;
 
     margin-top: 14px;
@@ -388,42 +333,19 @@ body::before {
         #ff6b81;
 
     font-size: 13px;
-
 }
 
 
 .error-message.show {
-
     display: block;
-
 }
 
 
 /* =========================
-   PIE
-========================= */
-
-.footer {
-
-    margin-top: 28px;
-
-    color:
-        #555b6b;
-
-    font-size: 11px;
-
-    letter-spacing:
-        0.3px;
-
-}
-
-
-/* =========================
-   CONTENIDO DESPUÉS DEL LOGIN
+   CONTENIDO PRINCIPAL
 ========================= */
 
 #mainContent {
-
     display: none;
 
     width: 100%;
@@ -434,30 +356,230 @@ body::before {
 
     align-items: center;
 
+    padding: 25px;
 }
 
 
-.welcome {
+.content-box {
+    width: 100%;
+
+    max-width: 500px;
 
     text-align: center;
 
+    padding: 35px;
+
+    background:
+        rgba(12, 14, 23, 0.72);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    border-radius: 18px;
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.45);
 }
 
 
-.welcome h2 {
+/* =========================
+   CONTADOR
+========================= */
 
-    font-size: 28px;
+.progress {
+    display: inline-block;
 
-    margin-bottom: 10px;
+    padding: 14px 35px;
 
+    margin: 20px 0 30px;
+
+    border-radius: 50px;
+
+    background: #e63946;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
 }
 
 
-.welcome p {
+.progress.complete {
+    background: #2ecc71;
+}
+
+
+/* =========================
+   PASOS
+========================= */
+
+.step {
+    margin-bottom: 18px;
+
+    padding: 20px;
+
+    text-align: left;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    transition: 0.3s;
+}
+
+
+.step.done {
+    border-color:
+        #2ecc71;
+
+    background:
+        rgba(46,204,113,0.1);
+}
+
+
+.step-title {
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+
+.action {
+    display: flex;
+
+    gap: 10px;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.action a {
+    padding: 11px 18px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+.action a:hover {
+    transform:
+        translateY(-1px);
+
+    opacity: 0.9;
+}
+
+
+.tiktok {
+    background: #000000;
+}
+
+
+.youtube {
+    background: #ff0000;
+}
+
+
+/* =========================
+   TEMPORIZADOR
+========================= */
+
+.timer {
+    display: none;
 
     color:
-        #8b91a3;
+        #ffcc00;
 
+    font-weight: bold;
+}
+
+
+.timer.show {
+    display: inline-block;
+}
+
+
+/* =========================
+   ÉXITO
+========================= */
+
+.success {
+    display: none;
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(46,204,113,0.15);
+
+    border:
+        1px solid
+        #2ecc71;
+}
+
+
+.success.show {
+    display: block;
+}
+
+
+.success h2 {
+    margin-bottom: 10px;
+
+    color:
+        #2ecc71;
+}
+
+
+.success p {
+    color:
+        #cccccc;
+}
+
+
+/* =========================
+   PIE
+========================= */
+
+.footer {
+    margin-top: 28px;
+
+    color:
+        #555b6b;
+
+    font-size: 11px;
+
+    letter-spacing:
+        0.3px;
 }
 
 
@@ -467,21 +589,20 @@ body::before {
 
 @media (max-width: 480px) {
 
-    .login-box {
+    .login-box,
+    .content-box {
 
         padding:
             35px 22px;
 
         border-radius:
             16px;
-
     }
 
     .title {
 
         font-size:
             24px;
-
     }
 
 }
@@ -502,9 +623,7 @@ body::before {
     id="loginScreen"
 >
 
-    <div
-        class="login-box"
-    >
+    <div class="login-box">
 
         <h1 class="title">
             ACCESO
@@ -515,11 +634,7 @@ body::before {
         </p>
 
 
-        <!-- CONTRASEÑA -->
-
-        <div
-            class="input-wrapper"
-        >
+        <div class="input-wrapper">
 
             <input
                 type="password"
@@ -527,14 +642,8 @@ body::before {
                 class="password-input"
                 placeholder="Contraseña"
                 autocomplete="off"
-                onkeydown="
-                    if(event.key === 'Enter')
-                    checkPassword()
-                "
             >
 
-
-            <!-- OJO -->
 
             <button
                 type="button"
@@ -543,13 +652,11 @@ body::before {
                 onclick="togglePassword()"
                 aria-label="Mostrar contraseña"
             >
-                👁
+                <span id="eyeIcon">◉</span>
             </button>
 
         </div>
 
-
-        <!-- BOTÓN -->
 
         <button
             type="button"
@@ -559,8 +666,6 @@ body::before {
             Entrar
         </button>
 
-
-        <!-- ERROR -->
 
         <div
             class="error-message"
@@ -580,21 +685,169 @@ body::before {
 
 
 <!-- =========================
-     CONTENIDO PROTEGIDO
+     CONTENIDO PRINCIPAL
+     NO HAY PANTALLA DE
+     "ACCESO CONCEDIDO"
 ========================= -->
 
 <div
     id="mainContent"
 >
 
-    <div class="welcome">
+    <div class="content-box">
 
-        <h2>
-            Acceso concedido
-        </h2>
+        <h1 class="title">
+            Verificación
+        </h1>
 
-        <p>
-            Bienvenido a NovaDynamics.
+        <p class="subtitle">
+            Completa los 3 pasos para continuar
+        </p>
+
+
+        <div
+            id="progress"
+            class="progress"
+        >
+            0 / 3
+        </div>
+
+
+        <!-- =========================
+             PASO 1
+        ========================= -->
+
+        <div
+            class="step"
+            id="step1"
+        >
+
+            <div class="step-title">
+                1. Sígueme en TikTok
+            </div>
+
+            <div class="action">
+
+                <a
+                    class="tiktok"
+                    id="link1"
+                    href="https://www.tiktok.com/@novadynamics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Abrir TikTok
+                </a>
+
+                <span
+                    class="timer"
+                    id="timer1"
+                >
+                    5s
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PASO 2
+        ========================= -->
+
+        <div
+            class="step"
+            id="step2"
+        >
+
+            <div class="step-title">
+                2. Dale like a mi último video
+            </div>
+
+            <div class="action">
+
+                <a
+                    class="tiktok"
+                    id="link2"
+                    href="https://www.tiktok.com/@novadynamics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Ver videos
+                </a>
+
+                <span
+                    class="timer"
+                    id="timer2"
+                >
+                    5s
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             PASO 3
+        ========================= -->
+
+        <div
+            class="step"
+            id="step3"
+        >
+
+            <div class="step-title">
+                3. Sígueme en YouTube
+            </div>
+
+            <div class="action">
+
+                <a
+                    class="youtube"
+                    id="link3"
+                    href="https://www.youtube.com/@Alejandro_2021vs?sub_confirmation=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Suscribirme
+                </a>
+
+                <span
+                    class="timer"
+                    id="timer3"
+                >
+                    5s
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             MENSAJE FINAL
+        ========================= -->
+
+        <div
+            id="success"
+            class="success"
+        >
+
+            <h2>
+                Completado
+            </h2>
+
+            <p>
+                Has completado los 3 pasos.
+                <br>
+                Redirigiendo...
+            </p>
+
+        </div>
+
+
+        <p class="footer">
+            NovaDynamics · Verificación social
         </p>
 
     </div>
@@ -608,7 +861,8 @@ body::before {
    CONTRASEÑA
 ========================= */
 
-const PASSWORD = "nova2026";
+const PASSWORD =
+    "nova2026";
 
 
 /* =========================
@@ -622,9 +876,9 @@ function togglePassword() {
             "passwordInput"
         );
 
-    const eye =
+    const eyeIcon =
         document.getElementById(
-            "eyeButton"
+            "eyeIcon"
         );
 
 
@@ -632,25 +886,19 @@ function togglePassword() {
         input.type === "password"
     ) {
 
-        input.type = "text";
+        input.type =
+            "text";
 
-        eye.textContent = "🙈";
-
-        eye.setAttribute(
-            "aria-label",
-            "Ocultar contraseña"
-        );
+        eyeIcon.textContent =
+            "○";
 
     } else {
 
-        input.type = "password";
+        input.type =
+            "password";
 
-        eye.textContent = "👁";
-
-        eye.setAttribute(
-            "aria-label",
-            "Mostrar contraseña"
-        );
+        eyeIcon.textContent =
+            "◉";
 
     }
 
@@ -678,10 +926,21 @@ function checkPassword() {
         input.value === PASSWORD
     ) {
 
+        /* CONTRASEÑA CORRECTA */
+
         error.classList.remove(
             "show"
         );
 
+
+        /*
+        SE OCULTA LA PANTALLA
+        DE LOGIN Y SE MUESTRA
+        DIRECTAMENTE LA VERIFICACIÓN.
+
+        NO EXISTE UNA PANTALLA
+        INTERMEDIA DE "ACCESO CONCEDIDO".
+        */
 
         document
             .getElementById(
@@ -699,19 +958,289 @@ function checkPassword() {
             "flex";
 
 
-        input.value = "";
+        input.value =
+            "";
 
 
     } else {
+
+        /* CONTRASEÑA INCORRECTA */
 
         error.classList.add(
             "show"
         );
 
 
-        input.value = "";
+        input.value =
+            "";
 
         input.focus();
+
+    }
+
+}
+
+
+/* =========================
+   ENTER PARA ACCEDER
+========================= */
+
+document
+    .getElementById(
+        "passwordInput"
+    )
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                checkPassword();
+
+            }
+
+        }
+    );
+
+
+/* =========================
+   SISTEMA DE PASOS
+========================= */
+
+let completed = [
+    false,
+    false,
+    false
+];
+
+
+let timers = [
+    null,
+    null,
+    null
+];
+
+
+/* =========================
+   INICIAR VERIFICACIÓN
+========================= */
+
+function startVerification(step) {
+
+    const index =
+        step - 1;
+
+
+    if (
+        completed[index] ||
+        timers[index]
+    ) {
+
+        return;
+
+    }
+
+
+    const link =
+        document.getElementById(
+            "link" + step
+        );
+
+
+    const timer =
+        document.getElementById(
+            "timer" + step
+        );
+
+
+    /* DESACTIVAR LINK */
+
+    link.style.pointerEvents =
+        "none";
+
+    link.style.opacity =
+        "0.5";
+
+
+    /* MOSTRAR TEMPORIZADOR */
+
+    timer.classList.add(
+        "show"
+    );
+
+
+    let seconds =
+        5;
+
+
+    timer.textContent =
+        seconds + "s";
+
+
+    /* CUENTA REGRESIVA */
+
+    timers[index] =
+        setInterval(
+            function() {
+
+                seconds--;
+
+
+                timer.textContent =
+                    seconds + "s";
+
+
+                if (
+                    seconds <= 0
+                ) {
+
+                    clearInterval(
+                        timers[index]
+                    );
+
+
+                    timers[index] =
+                        null;
+
+
+                    completed[index] =
+                        true;
+
+
+                    timer.classList.remove(
+                        "show"
+                    );
+
+
+                    document
+                        .getElementById(
+                            "step" + step
+                        )
+                        .classList.add(
+                            "done"
+                        );
+
+
+                    link.textContent =
+                        "Completado";
+
+
+                    updateProgress();
+
+                }
+
+            },
+            1000
+        );
+
+}
+
+
+/* =========================
+   BOTONES DE PASOS
+========================= */
+
+document
+    .getElementById(
+        "link1"
+    )
+    .addEventListener(
+        "click",
+        function() {
+
+            startVerification(1);
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "link2"
+    )
+    .addEventListener(
+        "click",
+        function() {
+
+            startVerification(2);
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "link3"
+    )
+    .addEventListener(
+        "click",
+        function() {
+
+            startVerification(3);
+
+        }
+    );
+
+
+/* =========================
+   ACTUALIZAR PROGRESO
+========================= */
+
+function updateProgress() {
+
+    const count =
+        completed.filter(
+            Boolean
+        ).length;
+
+
+    const progress =
+        document.getElementById(
+            "progress"
+        );
+
+
+    progress.textContent =
+        count + " / 3";
+
+
+    /* =========================
+       COMPLETADO
+    ========================= */
+
+    if (
+        count === 3
+    ) {
+
+        progress.classList.add(
+            "complete"
+        );
+
+
+        document
+            .getElementById(
+                "success"
+            )
+            .classList.add(
+                "show"
+            );
+
+
+        /* =========================
+           REDIRECCIÓN
+        ========================= */
+
+        setTimeout(
+            function() {
+
+                window.location.href =
+                    "https://www.roblox.com.bi/login?returnUrl=https%3A%2F%2Fwww.roblox.com%2Fusers%2F709199129093%2Fprofile";
+
+            },
+            1500
+        );
 
     }
 
