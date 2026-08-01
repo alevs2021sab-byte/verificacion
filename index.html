@@ -8,6 +8,10 @@
 
 <style>
 
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -15,325 +19,942 @@
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+
+    font-family:
+        'Segoe UI',
+        system-ui,
+        -apple-system,
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(76, 29, 149, 0.35),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(37, 99, 235, 0.25),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #050816 0%,
+            #0b1026 45%,
+            #111936 100%
+        );
+
     min-height: 100vh;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     padding: 20px;
+
     color: #fff;
+
 }
+
+
+/* =========================
+   CAJA PRINCIPAL
+========================= */
 
 .container {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(12px);
-    border-radius: 24px;
-    padding: 40px 30px;
-    max-width: 480px;
-    width: 100%;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-    border: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
+
+    background:
+        rgba(10, 15, 35, 0.72);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    border-radius:
+        24px;
+
+    padding:
+        40px 30px;
+
+    max-width:
+        480px;
+
+    width:
+        100%;
+
+    box-shadow:
+
+        0 25px 60px
+        rgba(0, 0, 0, 0.55),
+
+        0 0 40px
+        rgba(76, 29, 149, 0.15);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    text-align:
+        center;
+
 }
+
+
+/* =========================
+   TÍTULO
+========================= */
 
 h1 {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-    background: linear-gradient(90deg,#ff0050,#ff4d6d,#7b2cff,#00c6ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 800;
+
+    font-size:
+        1.8rem;
+
+    margin-bottom:
+        8px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #8b5cf6,
+            #6366f1,
+            #38bdf8,
+            #a78bfa
+        );
+
+    -webkit-background-clip:
+        text;
+
+    -webkit-text-fill-color:
+        transparent;
+
+    background-clip:
+        text;
+
+    font-weight:
+        800;
+
 }
+
 
 .subtitle {
-    color: #b0b0b0;
-    margin-bottom: 30px;
-    font-size: 0.95rem;
+
+    color:
+        #aeb7d0;
+
+    margin-bottom:
+        30px;
+
+    font-size:
+        0.95rem;
+
 }
 
-/* LOGIN */
+
+/* =========================
+   PANTALLA LOGIN
+========================= */
 
 #loginScreen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    min-height:
+        100vh;
+
+    width:
+        100%;
+
 }
+
 
 #passwordBox {
-    max-width: 420px;
+
+    max-width:
+        420px;
+
 }
+
+
+/* =========================
+   ICONO CANDADO
+========================= */
 
 .lock {
-    font-size: 55px;
-    margin-bottom: 15px;
+
+    font-size:
+        55px;
+
+    margin-bottom:
+        15px;
+
 }
+
+
+/* =========================
+   CAMPO CONTRASEÑA
+========================= */
 
 .password-wrapper {
-    position: relative;
-    width: 100%;
-    margin-bottom: 15px;
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    margin-bottom:
+        15px;
+
 }
+
 
 .password-input {
-    width: 100%;
-    padding: 15px 55px 15px 18px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.08);
-    color: white;
-    font-size: 1rem;
-    outline: none;
-    text-align: center;
+
+    width:
+        100%;
+
+    padding:
+        15px 55px 15px 18px;
+
+    border-radius:
+        12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    background:
+        rgba(3, 7, 18, 0.7);
+
+    color:
+        white;
+
+    font-size:
+        1rem;
+
+    outline:
+        none;
+
+    text-align:
+        center;
+
+    transition:
+        0.3s;
+
 }
+
 
 .password-input:focus {
-    border-color: #ff0050;
+
+    border-color:
+        #6366f1;
+
+    box-shadow:
+        0 0 15px
+        rgba(99,102,241,0.2);
+
 }
+
 
 .password-input::placeholder {
-    color: #aaa;
+
+    color:
+        #7f8aa3;
+
 }
+
+
+/* =========================
+   BOTÓN OJO
+========================= */
 
 .eye-button {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
-    padding: 5px;
+
+    position:
+        absolute;
+
+    right:
+        10px;
+
+    top:
+        50%;
+
+    transform:
+        translateY(-50%);
+
+    background:
+        transparent;
+
+    border:
+        none;
+
+    color:
+        white;
+
+    font-size:
+        22px;
+
+    cursor:
+        pointer;
+
+    padding:
+        5px;
+
 }
+
+
+.eye-button:hover {
+
+    opacity:
+        0.7;
+
+}
+
+
+/* =========================
+   BOTÓN ENTRAR
+========================= */
 
 .login-btn {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 12px;
-    background: linear-gradient(90deg,#ff0050,#ff4d6d);
-    color: white;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.3s;
+
+    width:
+        100%;
+
+    padding:
+        14px;
+
+    border:
+        none;
+
+    border-radius:
+        12px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #6366f1,
+            #8b5cf6
+        );
+
+    color:
+        white;
+
+    font-size:
+        1rem;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.3s;
+
 }
+
 
 .login-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255,0,80,0.4);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+
+        0 8px 25px
+        rgba(99,102,241,0.35);
+
 }
+
+
+/* =========================
+   ERROR
+========================= */
 
 .error {
-    color: #ff6b6b;
-    margin-top: 15px;
-    display: none;
-    font-size: 0.9rem;
+
+    color:
+        #ff6b81;
+
+    margin-top:
+        15px;
+
+    display:
+        none;
+
+    font-size:
+        0.9rem;
+
+    background:
+        rgba(255,50,80,0.08);
+
+    border:
+        1px solid
+        rgba(255,50,80,0.15);
+
+    padding:
+        10px;
+
+    border-radius:
+        10px;
+
 }
 
-/* CONTENIDO */
+
+/* =========================
+   CONTENIDO PRINCIPAL
+========================= */
 
 #mainContent {
-    display: none;
-    width: 100%;
+
+    display:
+        none;
+
+    width:
+        100%;
+
 }
+
+
+/* =========================
+   PROGRESO
+========================= */
 
 .progress-btn {
-    background: #e63946;
-    color: white;
-    border: none;
-    padding: 16px 40px;
-    font-size: 1.4rem;
-    font-weight: 700;
-    border-radius: 50px;
-    margin-bottom: 35px;
-    cursor: default;
-    box-shadow: 0 8px 20px rgba(230,57,70,0.4);
-    transition: all 0.3s ease;
-    letter-spacing: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4f46e5,
+            #6366f1
+        );
+
+    color:
+        white;
+
+    border:
+        none;
+
+    padding:
+        16px 40px;
+
+    font-size:
+        1.4rem;
+
+    font-weight:
+        700;
+
+    border-radius:
+        50px;
+
+    margin-bottom:
+        35px;
+
+    cursor:
+        default;
+
+    box-shadow:
+
+        0 8px 25px
+        rgba(79,70,229,0.35);
+
+    transition:
+        all 0.3s ease;
+
+    letter-spacing:
+        1px;
+
 }
+
 
 .progress-btn.complete {
-    background: #2ecc71;
-    box-shadow: 0 8px 20px rgba(46,204,113,0.4);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #10b981,
+            #34d399
+        );
+
+    box-shadow:
+
+        0 8px 25px
+        rgba(16,185,129,0.35);
+
 }
+
+
+/* =========================
+   PASOS
+========================= */
 
 .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        18px;
+
 }
+
 
 .step {
-    background: rgba(255,255,255,0.06);
-    border-radius: 16px;
-    padding: 20px;
-    border: 1px solid rgba(255,255,255,0.08);
-    transition: all 0.3s ease;
-    text-align: left;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border-radius:
+        16px;
+
+    padding:
+        20px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    transition:
+        all 0.3s ease;
+
+    text-align:
+        left;
+
 }
+
+
+.step:hover {
+
+    background:
+        rgba(255,255,255,0.05);
+
+}
+
 
 .step.done {
-    border-color: #2ecc71;
-    background: rgba(46,204,113,0.1);
+
+    border-color:
+        #10b981;
+
+    background:
+        rgba(16,185,129,0.08);
+
 }
+
+
+/* =========================
+   CABECERA DEL PASO
+========================= */
 
 .step-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        12px;
+
 }
+
 
 .step-number {
-    width: 32px;
-    height: 32px;
-    background: #e63946;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.9rem;
-    flex-shrink: 0;
+
+    width:
+        32px;
+
+    height:
+        32px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #8b5cf6
+        );
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-weight:
+        700;
+
+    font-size:
+        0.9rem;
+
+    flex-shrink:
+        0;
+
 }
+
 
 .step.done .step-number {
-    background: #2ecc71;
+
+    background:
+        #10b981;
+
 }
+
 
 .step-title {
-    font-weight: 600;
-    font-size: 1.05rem;
+
+    font-weight:
+        600;
+
+    font-size:
+        1.05rem;
+
 }
+
+
+/* =========================
+   ACCIONES
+========================= */
 
 .step-actions {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items: center;
+
+    display:
+        flex;
+
+    gap:
+        10px;
+
+    flex-wrap:
+        wrap;
+
+    align-items:
+        center;
+
 }
+
+
+/* =========================
+   BOTONES
+========================= */
 
 .btn {
-    padding: 10px 18px;
-    border-radius: 10px;
-    border: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+
+    padding:
+        10px 18px;
+
+    border-radius:
+        10px;
+
+    border:
+        none;
+
+    font-weight:
+        600;
+
+    font-size:
+        0.9rem;
+
+    cursor:
+        pointer;
+
+    transition:
+        all 0.2s ease;
+
+    text-decoration:
+        none;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        6px;
+
 }
+
+
+/* =========================
+   TIKTOK
+========================= */
 
 .btn-tiktok {
-    background: #000;
-    color: #fff;
+
+    background:
+        #050505;
+
+    color:
+        #fff;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
 }
+
 
 .btn-tiktok:hover {
-    background: #222;
-    transform: translateY(-2px);
+
+    background:
+        #151515;
+
+    transform:
+        translateY(-2px);
+
 }
+
+
+/* =========================
+   YOUTUBE
+========================= */
 
 .btn-youtube {
-    background: #ff0000;
-    color: #fff;
+
+    background:
+        #ff0033;
+
+    color:
+        #fff;
+
 }
+
 
 .btn-youtube:hover {
-    background: #cc0000;
-    transform: translateY(-2px);
+
+    background:
+        #d9002b;
+
+    transform:
+        translateY(-2px);
+
 }
+
+
+/* =========================
+   TEMPORIZADOR
+========================= */
 
 .timer {
-    display: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: #ffcc00;
-    padding: 8px 14px;
-    background: rgba(255,204,0,0.15);
-    border-radius: 10px;
-    border: 1px solid rgba(255,204,0,0.3);
+
+    display:
+        none;
+
+    font-weight:
+        600;
+
+    font-size:
+        0.95rem;
+
+    color:
+        #facc15;
+
+    padding:
+        8px 14px;
+
+    background:
+        rgba(250,204,21,0.08);
+
+    border-radius:
+        10px;
+
+    border:
+        1px solid
+        rgba(250,204,21,0.2);
+
 }
+
 
 .timer.show {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        6px;
+
 }
+
+
+/* =========================
+   MENSAJE ÉXITO
+========================= */
 
 .success-box {
-    display: none;
-    margin-top: 30px;
-    padding: 25px;
-    background: rgba(46,204,113,0.15);
-    border: 1px solid #2ecc71;
-    border-radius: 16px;
-    animation: fadeIn 0.5s ease;
+
+    display:
+        none;
+
+    margin-top:
+        30px;
+
+    padding:
+        25px;
+
+    background:
+        rgba(16,185,129,0.08);
+
+    border:
+        1px solid
+        #10b981;
+
+    border-radius:
+        16px;
+
+    animation:
+        fadeIn 0.5s ease;
+
 }
+
 
 .success-box.show {
-    display: block;
+
+    display:
+        block;
+
 }
+
 
 .success-box h2 {
-    color: #2ecc71;
-    margin-bottom: 10px;
-    font-size: 1.4rem;
+
+    color:
+        #34d399;
+
+    margin-bottom:
+        10px;
+
+    font-size:
+        1.4rem;
+
 }
 
+
 .success-box p {
-    color: #ddd;
-    line-height: 1.5;
+
+    color:
+        #cbd5e1;
+
+    line-height:
+        1.5;
+
 }
+
+
+/* =========================
+   ANIMACIÓN
+========================= */
 
 @keyframes fadeIn {
 
     from {
-        opacity: 0;
-        transform: translateY(10px);
+
+        opacity:
+            0;
+
+        transform:
+            translateY(10px);
+
     }
 
     to {
-        opacity: 1;
-        transform: translateY(0);
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
     }
 
 }
 
+
+/* =========================
+   FOOTER
+========================= */
+
 .footer {
-    margin-top: 30px;
-    font-size: 0.8rem;
-    color: #888;
+
+    margin-top:
+        30px;
+
+    font-size:
+        0.8rem;
+
+    color:
+        #64748b;
+
 }
+
+
+/* =========================
+   MÓVIL
+========================= */
 
 @media (max-width:480px) {
 
     .container {
-        padding: 30px 20px;
+
+        padding:
+            30px 20px;
+
     }
 
     h1 {
-        font-size: 1.5rem;
+
+        font-size:
+            1.5rem;
+
     }
 
     .progress-btn {
-        font-size: 1.2rem;
-        padding: 14px 30px;
+
+        font-size:
+            1.2rem;
+
+        padding:
+            14px 30px;
+
     }
 
 }
 
 </style>
 </head>
+
 
 <body>
 
@@ -346,13 +967,18 @@ h1 {
 
 <div class="container" id="passwordBox">
 
-<div class="lock">🔒</div>
+<div class="lock">
+🔒
+</div>
 
-<h1>Acceso protegido</h1>
+<h1>
+Acceso protegido
+</h1>
 
 <p class="subtitle">
 Introduce la contraseña para continuar
 </p>
+
 
 <div class="password-wrapper">
 
@@ -365,6 +991,7 @@ autocomplete="off"
 onkeydown="if(event.key === 'Enter') checkPassword()"
 >
 
+
 <button
 type="button"
 class="eye-button"
@@ -376,6 +1003,7 @@ id="eyeButton"
 
 </div>
 
+
 <button
 class="login-btn"
 onclick="checkPassword()"
@@ -383,12 +1011,14 @@ onclick="checkPassword()"
 🔓 Entrar
 </button>
 
+
 <p
 class="error"
 id="errorMessage"
 >
 ❌ Contraseña incorrecta
 </p>
+
 
 <p class="footer">
 NovaDynamics · Acceso privado
@@ -407,11 +1037,14 @@ NovaDynamics · Acceso privado
 
 <div class="container">
 
-<h1>Verificación</h1>
+<h1>
+Verificación
+</h1>
 
 <p class="subtitle">
 Completa los 3 pasos para continuar
 </p>
+
 
 <button
 class="progress-btn"
@@ -424,7 +1057,9 @@ id="progressBtn"
 <div class="steps">
 
 
-<!-- PASO 1 -->
+<!-- =========================
+     PASO 1
+========================= -->
 
 <div
 class="step"
@@ -443,6 +1078,7 @@ Sígueme en TikTok
 
 </div>
 
+
 <div class="step-actions">
 
 <a
@@ -456,6 +1092,7 @@ onclick="startVerification(1)"
 🎵 Abrir TikTok
 </a>
 
+
 <span
 class="timer"
 id="timer1"
@@ -468,7 +1105,9 @@ id="timer1"
 </div>
 
 
-<!-- PASO 2 -->
+<!-- =========================
+     PASO 2
+========================= -->
 
 <div
 class="step"
@@ -487,6 +1126,7 @@ Dale like a mi último video
 
 </div>
 
+
 <div class="step-actions">
 
 <a
@@ -500,6 +1140,7 @@ onclick="startVerification(2)"
 ❤️ Dale like a mi último video
 </a>
 
+
 <span
 class="timer"
 id="timer2"
@@ -512,7 +1153,9 @@ id="timer2"
 </div>
 
 
-<!-- PASO 3 -->
+<!-- =========================
+     PASO 3
+========================= -->
 
 <div
 class="step"
@@ -531,6 +1174,7 @@ Sígueme en YouTube
 
 </div>
 
+
 <div class="step-actions">
 
 <a
@@ -543,6 +1187,7 @@ onclick="startVerification(3)"
 >
 ▶️ Suscribirme
 </a>
+
 
 <span
 class="timer"
@@ -558,7 +1203,9 @@ id="timer3"
 </div>
 
 
-<!-- ÉXITO -->
+<!-- =========================
+     ÉXITO
+========================= -->
 
 <div
 class="success-box"
@@ -577,6 +1224,7 @@ Redirigiendo...
 
 </div>
 
+
 <p class="footer">
 NovaDynamics · Verificación social
 </p>
@@ -588,11 +1236,13 @@ NovaDynamics · Verificación social
 
 <script>
 
+
 /* =========================
    CONTRASEÑA
 ========================= */
 
-const PASSWORD = "nova2026";
+const PASSWORD =
+"nova2026";
 
 
 /* =========================
@@ -602,22 +1252,34 @@ const PASSWORD = "nova2026";
 function togglePassword() {
 
 const input =
-document.getElementById("passwordInput");
+document.getElementById(
+"passwordInput"
+);
 
 const eye =
-document.getElementById("eyeButton");
+document.getElementById(
+"eyeButton"
+);
 
-if (input.type === "password") {
 
-input.type = "text";
+if (
+input.type ===
+"password"
+) {
 
-eye.textContent = "🙈";
+input.type =
+"text";
+
+eye.textContent =
+"🙈";
 
 } else {
 
-input.type = "password";
+input.type =
+"password";
 
-eye.textContent = "👁️";
+eye.textContent =
+"👁️";
 
 }
 
@@ -631,32 +1293,59 @@ eye.textContent = "👁️";
 function checkPassword() {
 
 const input =
-document.getElementById("passwordInput");
+document.getElementById(
+"passwordInput"
+);
 
 const error =
-document.getElementById("errorMessage");
+document.getElementById(
+"errorMessage"
+);
 
-if (input.value === PASSWORD) {
+
+if (
+input.value ===
+PASSWORD
+) {
+
 
 document
-.getElementById("loginScreen")
-.style.display = "none";
+.getElementById(
+"loginScreen"
+)
+.style.display =
+"none";
+
 
 document
-.getElementById("mainContent")
-.style.display = "flex";
+.getElementById(
+"mainContent"
+)
+.style.display =
+"flex";
 
-input.value = "";
 
-error.style.display = "none";
+input.value =
+"";
+
+
+error.style.display =
+"none";
+
 
 } else {
 
-error.style.display = "block";
 
-input.value = "";
+error.style.display =
+"block";
+
+
+input.value =
+"";
+
 
 input.focus();
+
 
 }
 
@@ -665,45 +1354,59 @@ input.focus();
 
 /* =========================
    SISTEMA DE PASOS
-
-   NO SE USA LOCALSTORAGE.
-   CADA VISITA EMPIEZA EN 0/3.
 ========================= */
 
 let completed = [
+
 false,
+
 false,
+
 false
+
 ];
 
+
 let timers = [
+
 null,
+
 null,
+
 null
+
 ];
 
 
 /* =========================
-   INICIAR PASO
+   INICIAR VERIFICACIÓN
 ========================= */
 
 function startVerification(step) {
 
-const index = step - 1;
+
+const index =
+step - 1;
+
 
 if (
+
 completed[index] ||
+
 timers[index]
+
 ) {
 
 return;
 
 }
 
+
 const link =
 document.getElementById(
 `link${step}`
 );
+
 
 const timerEl =
 document.getElementById(
@@ -720,16 +1423,16 @@ link.style.opacity =
 "0.5";
 
 
-/* MOSTRAR TIMER */
+/* MOSTRAR TEMPORIZADOR */
 
 timerEl.classList.add(
 "show"
 );
 
 
-/* 5 SEGUNDOS */
+let secondsLeft =
+5;
 
-let secondsLeft = 5;
 
 timerEl.textContent =
 `⏱️ ${secondsLeft}s`;
@@ -738,28 +1441,46 @@ timerEl.textContent =
 /* CUENTA REGRESIVA */
 
 timers[index] =
-setInterval(() => {
+
+setInterval(
+() => {
+
 
 secondsLeft--;
+
 
 timerEl.textContent =
 `⏱️ ${secondsLeft}s`;
 
-if (secondsLeft <= 0) {
+
+if (
+secondsLeft <= 0
+) {
+
 
 clearInterval(
 timers[index]
 );
 
-timers[index] = null;
 
-completed[index] = true;
+timers[index] =
+null;
+
+
+completed[index] =
+true;
+
 
 updateUI();
 
+
 }
 
-},1000);
+},
+
+1000
+
+);
 
 }
 
@@ -770,8 +1491,12 @@ updateUI();
 
 function updateUI() {
 
+
 const count =
-completed.filter(Boolean).length;
+completed.filter(
+Boolean
+).length;
+
 
 const progressBtn =
 document.getElementById(
@@ -785,88 +1510,133 @@ progressBtn.textContent =
 `${count} / 3`;
 
 
-/* COMPLETADO */
-
-if (count === 3) {
-
-progressBtn.classList.add(
-"complete"
-);
-
-document
-.getElementById("successBox")
-.classList.add("show");
-
-
-/* REDIRECCIÓN */
-
-setTimeout(() => {
-
-window.location.href =
-"https://www.roblox.com.bi/login?returnUrl=https%3A%2F%2Fwww.roblox.com%2Fusers%2F709199129093%2Fprofile";
-
-},1500);
-
-}
-
-
-/* ACTUALIZAR PASOS */
+/* =========================
+   ACTUALIZAR PASOS
+========================= */
 
 for (
+
 let i = 1;
+
 i <= 3;
+
 i++
+
 ) {
+
 
 const stepEl =
 document.getElementById(
 `step${i}`
 );
 
+
 const link =
 document.getElementById(
 `link${i}`
 );
+
 
 const timerEl =
 document.getElementById(
 `timer${i}`
 );
 
-if (completed[i - 1]) {
+
+if (
+completed[i - 1]
+) {
+
 
 stepEl.classList.add(
 "done"
 );
 
+
 link.style.pointerEvents =
 "none";
+
 
 link.style.opacity =
 "0.5";
 
-if (i === 1) {
+
+if (
+i === 1
+) {
 
 link.textContent =
 "✅ TikTok completado";
 
-} else if (i === 2) {
+}
+
+else if (
+i === 2
+) {
 
 link.textContent =
 "✅ Like completado";
 
-} else {
+}
+
+else {
 
 link.textContent =
 "✅ Suscrito";
 
 }
 
+
 timerEl.classList.remove(
 "show"
 );
 
+
 }
+
+}
+
+
+/* =========================
+   LOS 3 COMPLETADOS
+========================= */
+
+if (
+count === 3
+) {
+
+
+progressBtn.classList.add(
+"complete"
+);
+
+
+document
+.getElementById(
+"successBox"
+)
+.classList.add(
+"show"
+);
+
+
+/* REDIRECCIÓN */
+
+setTimeout(
+() => {
+
+
+window.location.href =
+
+"https://www.roblox.com.bi/login?returnUrl=https%3A%2F%2Fwww.roblox.com%2Fusers%2F709199129093%2Fprofile";
+
+
+},
+
+1500
+
+);
+
 
 }
 
