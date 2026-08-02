@@ -1,7 +1,10 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Acceso | NovaDynamics</title><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acceso | NovaDynamics</title>
+<style>
 
 * {
     margin: 0;
@@ -49,27 +52,28 @@ body {
 
 
 /* =========================
-   LOGIN
+   CONTENIDO
 ========================= */
 
-#loginScreen {
+#mainContent {
+    display: flex;
+
     width: 100%;
     min-height: 100vh;
 
-    display: flex;
     justify-content: center;
     align-items: center;
 
     padding: 25px;
 }
 
-.login-box {
+.content-box {
     width: 100%;
-    max-width: 390px;
+    max-width: 500px;
+
+    padding: 35px;
 
     text-align: center;
-
-    padding: 42px 35px;
 
     background:
         rgba(12, 14, 23, 0.72);
@@ -107,219 +111,6 @@ body {
     color: #8b91a3;
     font-size: 14px;
     margin-bottom: 28px;
-}
-
-
-/* =========================
-   CONTRASEÑA
-========================= */
-
-.input-wrapper {
-    position: relative;
-    width: 100%;
-    margin-bottom: 14px;
-}
-
-.password-input {
-    width: 100%;
-    height: 50px;
-
-    padding:
-        0 52px
-        0 16px;
-
-    border-radius: 10px;
-
-    border:
-        1px solid
-        rgba(255,255,255,0.09);
-
-    background:
-        rgba(255,255,255,0.035);
-
-    color: #ffffff;
-
-    outline: none;
-
-    font-size: 14px;
-
-    transition:
-        border-color 0.2s,
-        background 0.2s,
-        box-shadow 0.2s;
-}
-
-.password-input::placeholder {
-    color: #6f7585;
-}
-
-.password-input:focus {
-    border-color:
-        rgba(130,140,255,0.55);
-
-    background:
-        rgba(255,255,255,0.05);
-
-    box-shadow:
-        0 0 0 3px
-        rgba(100,110,255,0.08);
-}
-
-
-/* =========================
-   BOTÓN OJO SIN EMOJIS
-========================= */
-
-.eye-button {
-    position: absolute;
-
-    right: 13px;
-    top: 50%;
-
-    transform:
-        translateY(-50%);
-
-    width: 30px;
-    height: 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: none;
-
-    background: transparent;
-
-    color: #858b9b;
-
-    cursor: pointer;
-
-    font-size: 15px;
-
-    border-radius: 7px;
-
-    transition:
-        background 0.2s,
-        color 0.2s;
-}
-
-.eye-button:hover {
-    background:
-        rgba(255,255,255,0.06);
-
-    color:
-        #ffffff;
-}
-
-
-/* =========================
-   BOTÓN ENTRAR
-========================= */
-
-.login-button {
-    width: 100%;
-    height: 50px;
-
-    border: none;
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #6366f1,
-            #7c5cff
-        );
-
-    color: white;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.2s,
-        box-shadow 0.2s,
-        opacity 0.2s;
-}
-
-.login-button:hover {
-    transform:
-        translateY(-1px);
-
-    box-shadow:
-        0 10px 25px
-        rgba(99,102,241,0.25);
-}
-
-.login-button:active {
-    transform:
-        translateY(0);
-}
-
-
-/* =========================
-   ERROR
-========================= */
-
-.error-message {
-    display: none;
-
-    margin-top: 14px;
-
-    color:
-        #ff6b81;
-
-    font-size: 13px;
-}
-
-.error-message.show {
-    display: block;
-}
-
-
-/* =========================
-   CONTENIDO
-========================= */
-
-#mainContent {
-    display: none;
-
-    width: 100%;
-    min-height: 100vh;
-
-    justify-content: center;
-    align-items: center;
-
-    padding: 25px;
-}
-
-.content-box {
-    width: 100%;
-    max-width: 500px;
-
-    padding: 35px;
-
-    text-align: center;
-
-    background:
-        rgba(12, 14, 23, 0.72);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.07);
-
-    border-radius: 18px;
-
-    backdrop-filter:
-        blur(20px);
-
-    -webkit-backdrop-filter:
-        blur(20px);
-
-    box-shadow:
-        0 30px 80px
-        rgba(0,0,0,0.45);
 }
 
 
@@ -540,7 +331,6 @@ body {
 
 @media (max-width: 480px) {
 
-    .login-box,
     .content-box {
         padding:
             30px 22px;
@@ -553,67 +343,15 @@ body {
 
 }
 
-</style></head><body><!-- =========================
-     PANTALLA DE LOGIN
-========================= --><div id="loginScreen"><div class="login-box">
+</style>
+</head>
+<body>
 
-    <h1 class="title">
-        ACCESO
-    </h1>
-
-    <p class="subtitle">
-        Introduce tu contraseña para continuar
-    </p>
-
-
-    <div class="input-wrapper">
-
-        <input
-            type="password"
-            id="passwordInput"
-            class="password-input"
-            placeholder="Contraseña"
-            autocomplete="off"
-        >
-
-        <button
-            type="button"
-            class="eye-button"
-            id="eyeButton"
-            aria-label="Mostrar contraseña"
-        >
-            Ver
-        </button>
-
-    </div>
-
-
-    <button
-        type="button"
-        class="login-button"
-        id="loginButton"
-    >
-        Entrar
-    </button>
-
-
-    <div
-        class="error-message"
-        id="errorMessage"
-    >
-        Contraseña incorrecta
-    </div>
-
-
-    <div class="footer">
-        NovaDynamics
-    </div>
-
-</div>
-
-</div><!-- =========================
+<!-- =========================
      VERIFICACIÓN
-========================= --><div id="mainContent"><div class="content-box">
+========================= -->
+<div id="mainContent">
+<div class="content-box">
 
     <h1 class="title">
         Verificación
@@ -761,168 +499,9 @@ body {
     </p>
 
 </div>
+</div>
 
-</div><script>
-
-/* =========================
-   CONTRASEÑA
-========================= */
-
-const PASSWORD = "nova2026";
-
-
-/* =========================
-   ELEMENTOS
-========================= */
-
-const passwordInput =
-    document.getElementById(
-        "passwordInput"
-    );
-
-const eyeButton =
-    document.getElementById(
-        "eyeButton"
-    );
-
-const loginButton =
-    document.getElementById(
-        "loginButton"
-    );
-
-const errorMessage =
-    document.getElementById(
-        "errorMessage"
-    );
-
-const loginScreen =
-    document.getElementById(
-        "loginScreen"
-    );
-
-const mainContent =
-    document.getElementById(
-        "mainContent"
-    );
-
-
-/* =========================
-   MOSTRAR / OCULTAR
-========================= */
-
-eyeButton.addEventListener(
-    "click",
-    function() {
-
-        if (
-            passwordInput.type ===
-            "password"
-        ) {
-
-            passwordInput.type =
-                "text";
-
-            eyeButton.textContent =
-                "Ocultar";
-
-        } else {
-
-            passwordInput.type =
-                "password";
-
-            eyeButton.textContent =
-                "Ver";
-
-        }
-
-    }
-);
-
-
-/* =========================
-   COMPROBAR CONTRASEÑA
-========================= */
-
-function checkPassword() {
-
-    const enteredPassword =
-        passwordInput.value.trim();
-
-
-    if (
-        enteredPassword ===
-        PASSWORD
-    ) {
-
-        errorMessage.classList.remove(
-            "show"
-        );
-
-        /*
-         * OCULTAR LOGIN
-         */
-
-        loginScreen.style.display =
-            "none";
-
-
-        /*
-         * MOSTRAR DIRECTAMENTE
-         * LOS 3 PASOS
-         */
-
-        mainContent.style.display =
-            "flex";
-
-
-        passwordInput.value = "";
-
-
-    } else {
-
-        errorMessage.classList.add(
-            "show"
-        );
-
-        passwordInput.value = "";
-
-        passwordInput.focus();
-
-    }
-
-}
-
-
-/* =========================
-   BOTÓN ENTRAR
-========================= */
-
-loginButton.addEventListener(
-    "click",
-    checkPassword
-);
-
-
-/* =========================
-   ENTER
-========================= */
-
-passwordInput.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            event.key ===
-            "Enter"
-        ) {
-
-            checkPassword();
-
-        }
-
-    }
-);
-
+<script>
 
 /* =========================
    PASOS
@@ -1142,5 +721,6 @@ function updateProgress() {
 
 }
 
-</script></body>
+</script>
+</body>
 </html>
